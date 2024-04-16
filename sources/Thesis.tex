@@ -1,0 +1,142 @@
+              %******************************************%
+              %                                          %
+              %         Standard thesis template         %
+              %            by Stefano Bianchi            %
+              %       translation by Simone Deiana       %
+              %                                          %
+              %          version: 27 June 2024           %
+              %                                          %
+              %******************************************%
+       
+% If one wants to print on both sides, substitute 'oneside' for 'twoside'
+% in the parameters of \documentclass
+\documentclass[a4paper,11pt,oneside,openany]{book}
+
+\usepackage[english]{babel}
+
+\usepackage[utf8]{inputenc} % Enables the use of accented Italian characters
+\usepackage[T1]{fontenc} % Enables the use of special characters usually not present in English alphabets
+
+\usepackage{fancyhdr} % Allows for the rendering of the cover
+
+\usepackage{graphicx} % Allows for the inclusion of figures in the document
+
+\usepackage{subfigure} % Allows for the inclusion of subfigures in the document
+
+\usepackage{tabularx} % Adds functionalities to tables
+\usepackage{longtable} % Allows to write tables on multiple pages
+
+\usepackage[titletoc]{appendix} % Allows to put appendix chapters in the index
+
+\usepackage{float} % Needed to include floating images
+
+\usepackage{fancyvrb} % Allows for the use of Verbatim windows (i.e. unformatted text) inside a frame
+
+\usepackage{amsmath} % Adds functionalities to formulas
+\numberwithin{equation}{section}
+
+\usepackage{hyperref} % Index of the topics with clickable link, for a more comfortable document navigation
+
+\usepackage{lipsum} % Allows for the insertion of filler text inside the thesis; useless when writing. Delete this command and all the \lorem commands inside the text.
+
+% To add content, refer to the relative files marked by parenthesis in the parameters of \input
+
+%*******************************************************
+% Settings of the single page and the cover
+%*******************************************************
+\input{Settings/Settings}
+
+%*******************************************************
+% Cover
+%*******************************************************
+% Configures the cover
+% Do not modify this part
+\usepackage[some]{background}
+\SetBgScale{1}
+\SetBgContents{
+\includegraphics[scale=1]{img/units_logo.pdf}}
+\SetBgColor{gray}
+\SetBgAngle{0}
+\SetBgOpacity{0.07}
+% Do not modify this part
+
+\input{Front/Cover}
+
+%*******************************************************
+% Dedications
+%*******************************************************
+\input{Front/Dedications}
+	
+\frontmatter
+
+%*******************************************************
+% Summary
+%*******************************************************
+\input{Front/Summary}
+
+%*******************************************************
+% Index
+%*******************************************************
+\tableofcontents
+
+%*******************************************************
+% Introduction
+%*******************************************************
+% Do not modify this part
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\ #1}}{}}
+% Do not modify this part
+
+\input{Front/Introduction}
+
+%*******************************************************
+% Chapters
+%*******************************************************
+\mainmatter
+
+% Do not modify this part
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\chaptername\ \thechapter.\ #1}}{}}
+% Do not modify this part
+
+% Add all the necessary chapters. One can add all the chapters
+% inside of a single .tex file or through one .tex file per chapter.
+
+\input{Main/Chapter1}
+\input{Main/Chapter2}
+\input{Main/Chapter3}
+\input{Main/Chapter4}
+
+%*******************************************************
+% Conclusions
+%*******************************************************
+\input{Back/Conclusions}
+
+%*******************************************************
+% Appendix
+%*******************************************************
+% Do not modify this part
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{APPENDICE\ \thechapter.\ #1}}{}}
+% Do not modify this part
+
+\appendix
+\label{appendix}
+
+\input{Back/Appendix1}
+\input{Back/Appendix2}
+\input{Back/Appendix3}
+
+\backmatter
+
+%*******************************************************
+% Bibliography
+%*******************************************************
+\nocite{*}
+\bibliography{Bib/Bibliography}
+\bibliographystyle{plain}
+
+%*******************************************************
+% Final dedications and acknowledgements
+%*******************************************************
+\input{Back/Acknowledgements}
+
+\end{document}
