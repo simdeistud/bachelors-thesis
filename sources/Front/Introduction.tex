@@ -21,13 +21,54 @@ capable of performing are. This forms the layer through which all software must 
 
 \section*{What is the LEGv8 ISA?}
 
-The ISA focus of this thesis is the LEGv8 ISA. This ISA was created by David A. Patterson and John L. Hennessy to serve as a teaching
+The ISA focus of this thesis is the LEGv8 ISA, an ARM-inspired architecture created by David A. Patterson and John L. Hennessy to serve as a teaching
 tool in their book \emph{Computer Organization and Design (ARM Edition)}. As the title suggests, the book is actually about the ARMv8 ISA, whose first
-iteration was originally released in 1983 by Acorn Computers and which is now developed by Arm Holdings plc. The authors however introduced a few
-changes and simplifications to the ARMv8 ISA to make it friendlier to students and to emphasize certain design concepts. As such, this ISA is used
+iteration was originally released in 1983 by Acorn Computers and which is now developed by Arm Holdings plc. The authors, however, introduced a few
+changes and simplifications to the ARMv8 ISA to make it friendlier to students and emphasize certain design concepts. As such, this ISA is used
 in the sections of the book dedicated to the design of a model processor and its programming, and its these sections upon which the LEGv8 simulator
 subject of this thesis is based.
 
 \section*{Overview of the LEGv8 ISA}
+
+\begin{figure}[h!]\label{fig:example}
+	\centering
+	%\includegraphics[width=.8\textwidth]{img/legv8_logical_scheme.png}
+	\caption{The logical scheme of the LEGv8 architecture}
+\end{figure}
+
+\subsection*{Architecture type}
+LEGv8 follows the Von Neumann architecture paradigm and thus contemplates the existence of a single main memory containing both the instructions and the program data. It is a 64-bit architecture and is specifically designed for pipelined execution. 
+\subsection*{Main memory}
+The main memory contains both the program code and the data. It is logically divided into a \emph{reserved} segment, a \emph{text} segment containing the program code, a \emph{static data} segment containing the constants defined at compile time, and a \emph{dynamic data} and \emph{stack} segments occupying the same location of memory and respectively growing upwards from the \emph{static data} segment and downwards from the stack pointer. This section of the memory is the one containing the data defined at execution time.
+\begin{figure}[h!]\label{fig:example}
+	\centering
+	%\includegraphics[width=.8\textwidth]{img/main_memory_layout.png}
+	\caption{Logical division of the main memory}
+\end{figure}
+\subsection*{Control unit}
+The control unit is the component responsible for coordinating the pipeline execution flow and configuring the various components to perform the desired operations in the correct order using the correct parameters.
+\subsection*{ALU}
+The LEGv8 ALU is capable of performing 64-bit integer operations and both single and double precision floating point operations. The operation to perform at any given moment is configured through an ALU code provided by the control unit.
+\subsection*{Pipeline}
+The LEGv8 pipeline is comprised of 5 stages: \emph{fetch},\emph{decode}, \emph{execute}, \emph{write back}, and \emph{store}.
+As the names suggest, the \emph{fetch} stage is responsible for acquiring instructions from the text segment of the main memory, the \emph{decode} stage decodes the instructions and configures the control unit accordingly, the \emph{execute} stage performs the computation through the ALU, the \emph{write back} stage writes the result into the specified register, and the \emph{store} stage is responsible for accessing the stack of the main memory.
+Of course not all instructions make use of all the pipeline stages and this is taken into consideration when optimizing the execution flow.
+\begin{figure}[h!]\label{fig:example}
+	\centering
+	%\includegraphics[width=.8\textwidth]{img/5_stage_pipeline.png}
+	\caption{The 5 pipeline stages}
+\end{figure}
+\subsection*{Registers}
+LEGv8 defines 32 64-bit \emph{X} registers for storing integer values and 32 64-bit \emph{D} registers for storing double precision floating point values. There are also 32 32-bit \emph{S} registers dedicated to single precision floating point values, albeit being purely logical and simply occupying the lower 32 bits of the \emph{D} registers. Unlike ARMv8, the presence of 32-bit \emph{W} integers registers is not contemplated.
+\subsection*{Instructions}
+LEGv8 presents a similar set of instructions compared to ARMv8, but for didactic purposes they have been subdivided using different names to better separate unsigned, signed, single precision and double precision arithmetical operations. Furthermore a few more advanced instructions have been left out, as we can observe from the following table:
+\begin{figure}[h!]\label{fig:example}
+	\centering
+	%\subfigure[Subfigure 1]{\includegraphics[width=.45\textwidth]{img/legv8_instruction_set.png}
+	%\subfigure[Subfigure 2]{\includegraphics[width=.45\textwidth]{img/armv8_instruction_set.png}}
+	\caption{Comparison of the two instruction sets}
+\end{figure}
+\section*{Motivations for choosing LEGv8}
+The LEGv8 ISA, being presented and defined in one of the major computer architecture undergraduate textbooks, is taught in many university courses around the world, including the Digital Systems Architecture course being held by Prof. Carini at UniTS. In spite of its popularity, no real hardware has been made to run its instruction set natively, and the simulator landscape is almost equally lacking in viable options. This in turn makes it impossible for educators and students alike to show working examples of LEGv8 code, depriving them of teaching and learning opportunities. For these reasons I have chosen to work on an already existing and partially working LEGv8 simulator provided by Arm Holdings plc. to expand on its functionalities to include a complete simulation of the ISA. 
 
 
