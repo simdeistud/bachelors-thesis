@@ -1,8 +1,69 @@
-\chapter{Lorem}\label{chap:lorem}
+\chapter{}
 
 \epigraph{"If 10 years from now, when you are doing something quick and dirty, you suddenly visualize that I am looking over your shoulders and say to yourself: 'Dijkstra would not have liked this', well that would be enough immortality for me."}{\textit{Edsger W. Dijkstra}}
 
-\section{Ipsum}
+\section*{The LEGv8 simulators landscape}
+
+The current landscape of publicly available LEGv8 simulators can be divided into two categories: simulators that aim to reproduce the logical design presented in the textbook in chapter ?, and the simulators providing a high level simulation of the instruction set as defined in the book.
+The survey was performed on GitHub using ``LEGv8'' and ``simulator'' as keywords.
+
+\subsection*{Software simulators}
+
+The surveyed software simulators were the following:
+https://github.com/c4wrd/legv8-emulator
+https://github.com/lcpckp/leg-cpu-sim
+https://github.com/chrwoods/legv8-emul
+https://github.com/mtalyat/LEGv8Day
+https://github.com/eaxworthy/LegV8Interpreter
+https://github.com/AdinAck/LEGv8-Simulator
+https://github.com/anvitha305/legv8sim
+https://github.com/sean-callahan/simleg
+https://github.com/john-salman/LEGv8
+https://github.com/phillbush/legv8
+https://github.com/dangbandy/LegV8-Simulator
+https://github.com/schang412/LEGv8-PyEmu
+https://github.com/GeorgePerreault/LEGV8_Interpreter
+https://github.com/cs-351-spring-19/Legv8-simulator
+https://github.com/CrystalRaine/Assembly-IDE
+
+They utilize high level languages such as C++, Python, Swift, TypeScript and Java. Some of them offer a graphical interface, pipelined execution and none of the implement the LEGv8 ISA in its entirety.
+
+
+
+\subsection*{Hardware simulators}
+
+The surveyed hardware simulators were the following:
+https://github.com/nxbyte/ARM-LEGv8
+https://github.com/lijyhh/LEGv8
+https://github.com/ronitrex/ARMLEG
+https://github.com/mattco98/LEGv8-Processor
+https://github.com/amaurilopez90/LEGv8-CPU
+https://github.com/miguelangelo78/LEGv8-ISA
+https://github.com/brianworts/LEGv8_SingleCycle_Processor
+https://github.com/xvalme/Arm-Legv8-CPU
+https://github.com/egflo/LEGv8
+https://github.com/ad153153/LegV8
+https://github.com/hyper-windy/Legv8
+
+They mostly use Verilog as their hardware description language and implement a limited subset of the LEGv8 ISA. Some of the follow closely the design of the textbook while others expand upon it adding more executable instructions. None of them offer a graphical interface nor implement the ISA in its entirety.
+
+\section*{ARM's LEGv8 simulator}
+
+This is the simulator officially provided by ARM Education and is the subject of this thesis' work. It is written in Java 8 and uses Google's GWT framework to transpile the code into native JavaScript to allow the simulator to be executed inside a web browser as a normal web application. It provides a comprehensive user interface displaying an interactive text editor (provided by AceGWT) to input LEGv8 code and to display errors, and a visualization of the state of the \emph{X} registers.
+When selecting the single-cycle execution mode a visualizaton of the logical scheme of the LEGv8 ISA is presented and for each stage of the execution various components change color to indicate the current stage of the pipeline. For the pipeline execution mode the visualization is slightly modified to include pipeline-specific information such as pipeline registers, the hazard detection unit and the forwarding unit. An additional textual representation of the pipeline is provided to see the stage occupied by each instruction at any given moment.
+
+\begin{figure}[H]
+	\centering
+	\subfigure[Single cycle]{
+		\includegraphics[width=.85\textwidth]{img/old_single_cycle.jpeg}
+	}
+	
+	\subfigure[Pipeline]{
+		\includegraphics[width=.85\textwidth]{img/old_pipeline.jpeg}
+	}
+	\caption{The simulator's main page with the two different execution modes}
+\end{figure}
+
 
 Example of citations or references~\cite{einstein}\cite{latexcompanion}
 
