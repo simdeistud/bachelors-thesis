@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.2)  9 JUL 2024 13:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.2)  11 JUL 2024 11:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -739,11 +739,7 @@ Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
 \AP@partial=\box75
 \AP@footins=\box76
 ))
-(./Front/Cover.tex (./Thesis.aux
-
-LaTeX Warning: Label `fig:example' multiply defined.
-
-)
+(./Front/Cover.tex (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -764,7 +760,8 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
- (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count331
 \scratchdimen=\dimen273
@@ -792,7 +789,7 @@ Package hyperref Info: Link coloring ON on input line 4.
 \@outlinefile=\write5
 \openout5 = `Thesis.out'.
 
-<img/units_logo.pdf, id=15, 702.53722pt x 702.53722pt>
+<img/units_logo.pdf, id=111, 702.53722pt x 702.53722pt>
 File: img/units_logo.pdf Graphic file (type pdf)
 <use img/units_logo.pdf>
 Package pdftex.def Info: img/units_logo.pdf  used on input line 14.
@@ -848,17 +845,11 @@ l.77 \tableofcontents
 ] [3
 
 ]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[4]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+<img/legv8_logical_scheme.png, id=176, 794.97pt x 620.3175pt>
+File: img/legv8_logical_scheme.png Graphic file (type png)
+<use img/legv8_logical_scheme.png>
+Package pdftex.def Info: img/legv8_logical_scheme.png  used on input line 35.
+(pdftex.def)             Requested size: 288.0011pt x 224.73392pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -868,7 +859,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5])
+[4 <./img/legv8_logical_scheme.png>]
+<img/main_memory_layout.png, id=188, 1170.3725pt x 534.99875pt>
+File: img/main_memory_layout.png Graphic file (type png)
+<use img/main_memory_layout.png>
+Package pdftex.def Info: img/main_memory_layout.png  used on input line 47.
+(pdftex.def)             Requested size: 288.0011pt x 131.65135pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -877,7 +874,51 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[6] (./Main/Chapter1.tex
+[5 <./img/main_memory_layout.png>]
+<img/5_stage_pipeline.png, id=199, 1006.76125pt x 136.51pt>
+File: img/5_stage_pipeline.png Graphic file (type png)
+<use img/5_stage_pipeline.png>
+Package pdftex.def Info: img/5_stage_pipeline.png  used on input line 60.
+(pdftex.def)             Requested size: 288.0011pt x 39.04947pt.
+<img/legv8_instruction_set.png, id=200, 1660.2025pt x 912.40875pt>
+File: img/legv8_instruction_set.png Graphic file (type png)
+<use img/legv8_instruction_set.png>
+Package pdftex.def Info: img/legv8_instruction_set.png  used on input line 67.
+(pdftex.def)             Requested size: 288.0011pt x 158.26778pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6 <./img/5_stage_pipeline.png>]
+<img/instruction_types.png, id=210, 586.19pt x 262.9825pt>
+File: img/instruction_types.png Graphic file (type png)
+<use img/instruction_types.png>
+Package pdftex.def Info: img/instruction_types.png  used on input line 74.
+(pdftex.def)             Requested size: 288.0011pt x 129.20363pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[7 <./img/legv8_instruction_set.png> <./img/instruction_types.png>])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[8] (./Main/Chapter1.tex
 Chapter 1.
 
 LaTeX Warning: Citation `einstein' on page 1 undefined on input line 7.
@@ -885,7 +926,7 @@ LaTeX Warning: Citation `einstein' on page 1 undefined on input line 7.
 
 LaTeX Warning: Citation `latexcompanion' on page 1 undefined on input line 7.
 
-<img/units_logo.png, id=83, 702.625pt x 702.625pt>
+<img/units_logo.png, id=223, 702.625pt x 702.625pt>
 File: img/units_logo.png Graphic file (type png)
 <use img/units_logo.png>
 Package pdftex.def Info: img/units_logo.png  used on input line 11.
@@ -1082,26 +1123,17 @@ L3 programming layer <2024-01-22>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
-
-Package rerunfilecheck Warning: File `Thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Thesis.out':
-(rerunfilecheck)             Before: 13884A165204839241C01EB04470E508;183
-(rerunfilecheck)             After:  664FF4302EE8B4CFCFE098CD9F0E02E6;2706.
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 664FF4302EE8B4CFCFE098CD9F0E02E6;2706.
  ) 
 Here is how much of TeX's memory you used:
- 23032 strings out of 476182
- 425982 string characters out of 5795596
+ 23095 strings out of 476182
+ 427519 string characters out of 5795596
  1932975 words of memory out of 5000000
- 44497 multiletter control sequences out of 15000+600000
+ 44557 multiletter control sequences out of 15000+600000
  575252 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,13n,107p,849b,768s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,13n,107p,1206b,768s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0
 900.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/
 ec/ecbx2074.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/j
@@ -1117,10 +1149,10 @@ pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm
 1728.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen
 /ec/ecbx1440.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/
 jknappen/ec/ecbx1728.600pk>
-Output written on Thesis.pdf (31 pages, 687378 bytes).
+Output written on Thesis.pdf (33 pages, 1235261 bytes).
 PDF statistics:
- 673 PDF objects out of 1000 (max. 8388607)
- 244 compressed objects within 3 object streams
- 83 named destinations out of 1000 (max. 500000)
- 39 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 808 PDF objects out of 1000 (max. 8388607)
+ 348 compressed objects within 4 object streams
+ 86 named destinations out of 1000 (max. 500000)
+ 256 words of extra memory for PDF output out of 10000 (max. 10000000)
 
