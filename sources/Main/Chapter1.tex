@@ -72,6 +72,8 @@ They utilize high level languages such as C++, Python, Swift, TypeScript and Jav
 \end{table}
 
 They use mostly Verilog as their hardware description language and implement an incomplete subset of the LEGv8 ISA. Some of them follow closely the design of the textbook while others expand upon it adding more executable instructions. None of them offer a graphical interface nor implement the ISA in its entirety.
+\\
+It is clear from this brief survey that the LEGv8 simulators space lacks any desirable candidates for code execution and inspection, as the software simulators are incomplete and platform-dependant, and the hardware ones lack interactivity and comprehensive visual output capabilities.
 
 \section*{ARM's LEGv8 simulator}
 
@@ -90,46 +92,61 @@ When selecting the single-cycle execution mode, a visualizaton of the logical sc
 	\caption{The simulator's main page with the two different execution modes}
 \end{figure}
 
+\subsection*{Features}
 
-Example of citations or references~\cite{einstein}\cite{latexcompanion}
+This simulator presents many favorable characteristics:
 
-\begin{figure}[h!]\label{fig:example}
-\centering
-\includegraphics[width=.8\textwidth]{img/units_logo.png}
-\caption{Example of a figure}
+\begin{itemize}[label=\textendash]
+	\item Written in Java (platform agnostic, extensible)
+	\item Compiled as a web application (platform agnostic and easily deployable)
+	\item Embedded text editor to input code with and error display
+	\item Clear and rich visualization of the \emph{X} and flag registers and the datapath of the CPU
+	\item Almost all of the integer arithmetic is already implemented
+	\item All types of integer \emph{LOAD} and \emph{STORE} instructions are already implemented, including \emph{STXUR} and \emph{LDXUR}
+	\item Officially distributed by ARM Education (biggest support and discoverability)
+\end{itemize}
+
+
+\subsection*{Problems}
+
+Unfortunately many problems present themselves when trying to run or develop the simulator:
+
+\begin{itemize}[label=\textendash]
+	\item Absence of any documentation on how to build the project
+	\item Executable version distributed in web page form
+	\item Pipeline execution is incomplete
+	\item The branch and link instruction writes the incorrect address into the LR register, making it impossible to write subroutines as they loop forever
+	\item The integer comparisons do not work properly, making it impossible to perform any kind of loop or branch
+	\item The project is heavily dependent on the Eclipse Java IDE with an old GWT plugin to perform the build process
+	\item The project depends on the outdated and barely supported GWT library to deploy the simulator as a web application. This restricts the developers from using newer Java features or better web frameworks.
+\end{itemize}
+
+
+I present below a demonstration of the bugs regarding the branch and link instruction and the integer comparisons:
+
+\begin{figure}[H]
+	\centering
+	\subfigure[BL writes the wrong address to LR]{\includegraphics[width=.45\textwidth]{img/br_bug_1.png}}
+	\subfigure[Jumps to label and increments X0]{\includegraphics[width=.45\textwidth]{img/br_bug_2.png}}
+	\subfigure[Reads wrong address from LR]{\includegraphics[width=.45\textwidth]{img/br_bug_3.png}}
+	\subfigure[Returns to wrong address]{\includegraphics[width=.45\textwidth]{img/br_bug_4.png}}
+	\caption{Branch returns to the wrong instruction, making it execute the branch in a loop}
 \end{figure}
 
-\lipsum[3]
-
-\begin{figure}[!ht]
-\centering
-\subfigure[Subfigure 1]{\includegraphics[width=.45\textwidth]{img/units_logo.png}}
-\subfigure[Subfigure 2]{\includegraphics[width=.45\textwidth]{img/units_logo.png}}
-\subfigure[Subfigure 3]{\includegraphics[width=.45\textwidth]{img/units_logo.png}}
-\subfigure[Subfigure 4]{\includegraphics[width=.45\textwidth]{img/units_logo.png}}
-\caption{Example of figure with subfigures}
-\label{fig:subexample}
+\begin{figure}[H]
+	\centering
+	\subfigure[X0 < X1]{\includegraphics[width=.45\textwidth]{img/cmp_bug_1.png}}
+	\subfigure[Comparison fails]{\includegraphics[width=.45\textwidth]{img/cmp_bug_2.png}}
+	\subfigure[Branch gets ignored]{\includegraphics[width=.45\textwidth]{img/cmp_bug_3.png}}
+	\subfigure[Wrong instruction executed]{\includegraphics[width=.45\textwidth]{img/cmp_bug_4.png}}
+	\caption{Comparisons do not set the correct flags and thus fail}
 \end{figure}
 
-\lipsum[4]
+For these reasons then this simulator was chosen as the subject of my thesis:
 
-\section{Dolor}
-\lipsum[3]
-
-\begin{table}
-\centering
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Lorem} & \textbf{Ipsum} \\
-\hline
-\hline
-Dolor & Sit \\
-\hline
-Amet &  \\
-\hline
-\end{tabular}
-\caption{Example of a table}
-\label{tab:example}
-\end{table}
-
-\lipsum[4-5]
+\begin{itemize}[label=\textendash]
+	\item Maximize the impact of my work by fixing and improving the most popular simulator available
+	\item Provide the first complete implementation of the LEGv8 instruction set
+	\item My pre-existing knowledge of Java and build automation systems would allow me to quickly get up to speed and extend the codebase efficiently
+	\item Allow the Digital Systems Architecture course at UniTS and other courses in general to have a working LEGv8 simulator for more effective teaching
+\end{itemize}
