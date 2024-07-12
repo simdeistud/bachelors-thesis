@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.2)  11 JUL 2024 12:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.2)  12 JUL 2024 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -920,138 +920,49 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8] (./Main/Chapter1.tex
 Chapter 1.
-! Missing $ inserted.
-<inserted text> 
-                $
-l.25 https://github.com/GeorgePerreault/LEGV8_
-                                              Interpreter
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.28 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (47.42238pt too wide) in paragraph at lines 12--28
-\T1/cmr/m/n/10.95 The sur-veyed soft-ware sim-u-la-tors were the fol-low-ing: h
-ttps://github.com/c4wrd/legv8-
- []
-
-
-Overfull \hbox (48.25714pt too wide) in paragraph at lines 12--28
-\T1/cmr/m/n/10.95 emulator https://github.com/lcpckp/leg-cpu-sim https://github
-.com/chrwoods/legv8-
- []
-
-
-Overfull \hbox (92.9483pt too wide) in paragraph at lines 12--28
-\T1/cmr/m/n/10.95 emul https://github.com/mtalyat/LEGv8Day https://github.com/e
-axworthy/LegV8Interpreter
- []
-
-
-Overfull \hbox (64.88528pt too wide) in paragraph at lines 12--28
-\T1/cmr/m/n/10.95 https://github.com/AdinAck/LEGv8-Simulator https://github.com
-/anvitha305/legv8sim
- []
-
-
-Overfull \hbox (32.05016pt too wide) in paragraph at lines 12--28
-\T1/cmr/m/n/10.95 https://github.com/sean-callahan/simleg https://github.com/jo
-hn-salman/LEGv8
- []
-
-
-Overfull \hbox (1.75827pt too wide) in paragraph at lines 12--28
-\T1/cmr/m/n/10.95 https://github.com/phillbush/legv8 https://github.com/dangban
-dy/LegV8-
- []
-
-
-Overfull \hbox (217.27266pt too wide) in paragraph at lines 12--28
-\T1/cmr/m/n/10.95 Simulator https://github.com/schang412/LEGv8-PyEmu https://gi
-thub.com/GeorgePerreault/LEGV8$[]\OML/cmm/m/it/10.95 nterpreterhttps \OT1/cmr/m
-/n/10.95 :
- []
-
-
-Overfull \hbox (128.14014pt too wide) in paragraph at lines 12--28
-\OML/cmm/m/it/10.95 ==github:com=cs \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 
-351 \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 spring \OMS/cmsy/m/n/10.95 ^^@ 
-\OT1/cmr/m/n/10.95 19\OML/cmm/m/it/10.95 =Legv\OT1/cmr/m/n/10.95 8 \OMS/cmsy/m/
-n/10.95 ^^@ \OML/cmm/m/it/10.95 simulatorhttps \OT1/cmr/m/n/10.95 : \OML/cmm/m/
-it/10.95 ==github:com=CrystalRaine=Assembly \OMS/cmsy/m/n/10.95 ^^@
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.42 https://github.com/brianworts/LEGv8_
-                                         SingleCycle_Processor
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.47 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (57.77762pt too wide) in paragraph at lines 35--47
-\T1/cmr/m/n/10.95 The sur-veyed hard-ware sim-u-la-tors were the fol-low-ing: h
-ttps://github.com/nxbyte/ARM-
- []
-
-
-Overfull \hbox (31.2343pt too wide) in paragraph at lines 35--47
-\T1/cmr/m/n/10.95 LEGv8 https://github.com/lijyhh/LEGv8 https://github.com/roni
-trex/ARMLEG
- []
-
-
-Overfull \hbox (80.29236pt too wide) in paragraph at lines 35--47
-\T1/cmr/m/n/10.95 https://github.com/mattco98/LEGv8-Processor https://github.co
-m/amaurilopez90/LEGv8-
- []
-
-
-Overfull \hbox (222.92712pt too wide) in paragraph at lines 35--47
-\T1/cmr/m/n/10.95 CPU https://github.com/miguelangelo78/LEGv8-ISA https://githu
-b.com/brianworts/LEGv8$[]\OML/cmm/m/it/10.95 ingleCycle[]rocessorhttps \OT1/cmr
-/m/n/10.95 :
- []
-
-
-Overfull \hbox (47.97621pt too wide) in paragraph at lines 35--47
-\OML/cmm/m/it/10.95 ==github:com=xvalme=Arm \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/
-it/10.95 Legv\OT1/cmr/m/n/10.95 8 \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 C
-PUhttps \OT1/cmr/m/n/10.95 : \OML/cmm/m/it/10.95 ==github:com=egflo=LEGv\OT1/cm
-r/m/n/10.95 8\OML/cmm/m/it/10.95 https \OT1/cmr/m/n/10.95 :
- []
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
+6.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.36 	\end{tabular}}
+                    
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
 
 [1
 
 
 ]
-<img/old_single_cycle.jpeg, id=229, 1750.54pt x 904.37875pt>
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.70 	\end{tabular}}
+                    
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<img/old_single_cycle.jpeg, id=246, 1750.54pt x 904.37875pt>
 File: img/old_single_cycle.jpeg Graphic file (type jpg)
 <use img/old_single_cycle.jpeg>
-Package pdftex.def Info: img/old_single_cycle.jpeg  used on input line 59.
+Package pdftex.def Info: img/old_single_cycle.jpeg  used on input line 85.
 (pdftex.def)             Requested size: 306.0022pt x 158.08925pt.
-<img/old_pipeline.jpeg, id=230, 1750.54pt x 1211.52625pt>
+<img/old_pipeline.jpeg, id=247, 1750.54pt x 1211.52625pt>
 File: img/old_pipeline.jpeg Graphic file (type jpg)
 <use img/old_pipeline.jpeg>
-Package pdftex.def Info: img/old_pipeline.jpeg  used on input line 63.
+Package pdftex.def Info: img/old_pipeline.jpeg  used on input line 89.
 (pdftex.def)             Requested size: 306.0022pt x 211.77994pt.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1062,15 +973,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2]
 
-LaTeX Warning: Citation `einstein' on page 3 undefined on input line 68.
+LaTeX Warning: Citation `einstein' on page 3 undefined on input line 94.
 
 
-LaTeX Warning: Citation `latexcompanion' on page 3 undefined on input line 68.
+LaTeX Warning: Citation `latexcompanion' on page 3 undefined on input line 94.
 
-<img/units_logo.png, id=237, 702.625pt x 702.625pt>
+<img/units_logo.png, id=255, 702.625pt x 702.625pt>
 File: img/units_logo.png Graphic file (type png)
 <use img/units_logo.png>
-Package pdftex.def Info: img/units_logo.png  used on input line 72.
+Package pdftex.def Info: img/units_logo.png  used on input line 98.
 (pdftex.def)             Requested size: 288.0011pt x 288.00307pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1081,19 +992,19 @@ Package lipsum Warning: Unknown language 'latin'. Hyphenation patterns for
 
 File: img/units_logo.png Graphic file (type png)
 <use img/units_logo.png>
-Package pdftex.def Info: img/units_logo.png  used on input line 80.
+Package pdftex.def Info: img/units_logo.png  used on input line 106.
 (pdftex.def)             Requested size: 161.9989pt x 161.99702pt.
 File: img/units_logo.png Graphic file (type png)
 <use img/units_logo.png>
-Package pdftex.def Info: img/units_logo.png  used on input line 81.
+Package pdftex.def Info: img/units_logo.png  used on input line 107.
 (pdftex.def)             Requested size: 161.9989pt x 161.99702pt.
 File: img/units_logo.png Graphic file (type png)
 <use img/units_logo.png>
-Package pdftex.def Info: img/units_logo.png  used on input line 82.
+Package pdftex.def Info: img/units_logo.png  used on input line 108.
 (pdftex.def)             Requested size: 161.9989pt x 161.99702pt.
 File: img/units_logo.png Graphic file (type png)
 <use img/units_logo.png>
-Package pdftex.def Info: img/units_logo.png  used on input line 83.
+Package pdftex.def Info: img/units_logo.png  used on input line 109.
 (pdftex.def)             Requested size: 161.9989pt x 161.99702pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1269,43 +1180,38 @@ L3 programming layer <2024-01-22>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 8DA07D1B6213E05B95A6D81669645B42;2593.
  ) 
 Here is how much of TeX's memory you used:
- 23115 strings out of 476182
- 427999 string characters out of 5795596
- 1932975 words of memory out of 5000000
- 44569 multiletter control sequences out of 15000+600000
- 575252 words of font info for 70 fonts, out of 8000000 for 9000
+ 23142 strings out of 476182
+ 428700 string characters out of 5795596
+ 1938975 words of memory out of 5000000
+ 44589 multiletter control sequences out of 15000+600000
+ 576341 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,13n,107p,1206b,768s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0
 900.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecbx2074.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecti1095.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/
-ljfour/jknappen/ec/ecti1000.600pk> </home/simonedeiana/.texlive2023/texmf-var/f
-onts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/simonedeiana/.texlive2023/tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/simonedeiana/.texlive
-2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/simonedeiana/
-.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/simon
-edeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </ho
-me/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600
-pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm
-1728.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen
-/ec/ecbx1440.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
->
-Output written on Thesis.pdf (35 pages, 1712998 bytes).
+ec/ectt1000.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecbx1000.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/
+ljfour/jknappen/ec/ecbx2074.600pk> </home/simonedeiana/.texlive2023/texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/simonedeiana/.texlive2023/tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/simonedeiana/.texlive
+2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/simonedeiana/
+.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/simon
+edeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </ho
+me/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600
+pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
+1200.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen
+/ec/ecrm1200.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk/ljfour/
+jknappen/ec/ecrm1728.600pk> </home/simonedeiana/.texlive2023/texmf-var/fonts/pk
+/ljfour/jknappen/ec/ecbx1440.600pk> </home/simonedeiana/.texlive2023/texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk>
+Output written on Thesis.pdf (35 pages, 1695266 bytes).
 PDF statistics:
- 858 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
- 94 named destinations out of 1000 (max. 500000)
+ 948 PDF objects out of 1000 (max. 8388607)
+ 385 compressed objects within 4 object streams
+ 96 named destinations out of 1000 (max. 500000)
  258 words of extra memory for PDF output out of 10000 (max. 10000000)
 
