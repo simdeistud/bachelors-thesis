@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  13 JUL 2024 19:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  14 JUL 2024 12:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -938,10 +938,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [4 <./img/legv8_logical_scheme.png>]
-<img/main_memory_layout.png, id=176, 1170.3725pt x 534.99875pt>
+<img/registers_conventions.png, id=176, 612.03656pt x 415.5525pt>
+File: img/registers_conventions.png Graphic file (type png)
+<use img/registers_conventions.png>
+Package pdftex.def Info: img/registers_conventions.png  used on input line 47.
+(pdftex.def)             Requested size: 288.0011pt x 195.54431pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.50 \newline
+             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<img/main_memory_layout.png, id=177, 1170.3725pt x 534.99875pt>
 File: img/main_memory_layout.png Graphic file (type png)
 <use img/main_memory_layout.png>
-Package pdftex.def Info: img/main_memory_layout.png  used on input line 47.
+Package pdftex.def Info: img/main_memory_layout.png  used on input line 57.
 (pdftex.def)             Requested size: 288.0011pt x 131.65135pt.
 
 
@@ -953,17 +972,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5 <./img/main_memory_layout.png>]
-<img/5_stage_pipeline.png, id=187, 1006.76125pt x 136.51pt>
+[5 <./img/registers_conventions.png>]
+<img/5_stage_pipeline.png, id=186, 1006.76125pt x 136.51pt>
 File: img/5_stage_pipeline.png Graphic file (type png)
 <use img/5_stage_pipeline.png>
-Package pdftex.def Info: img/5_stage_pipeline.png  used on input line 60.
+Package pdftex.def Info: img/5_stage_pipeline.png  used on input line 70.
 (pdftex.def)             Requested size: 288.0011pt x 39.04947pt.
-<img/legv8_instruction_set.png, id=188, 1660.2025pt x 912.40875pt>
-File: img/legv8_instruction_set.png Graphic file (type png)
-<use img/legv8_instruction_set.png>
-Package pdftex.def Info: img/legv8_instruction_set.png  used on input line 67.
-(pdftex.def)             Requested size: 288.0011pt x 158.26778pt.
 
 
 
@@ -974,11 +988,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[6 <./img/5_stage_pipeline.png>]
+[6 <./img/main_memory_layout.png>]
+<img/legv8_instruction_set.png, id=197, 1660.2025pt x 912.40875pt>
+File: img/legv8_instruction_set.png Graphic file (type png)
+<use img/legv8_instruction_set.png>
+Package pdftex.def Info: img/legv8_instruction_set.png  used on input line 77.
+(pdftex.def)             Requested size: 288.0011pt x 158.26778pt.
 <img/instruction_types.png, id=198, 586.19pt x 262.9825pt>
 File: img/instruction_types.png Graphic file (type png)
 <use img/instruction_types.png>
-Package pdftex.def Info: img/instruction_types.png  used on input line 74.
+Package pdftex.def Info: img/instruction_types.png  used on input line 84.
 (pdftex.def)             Requested size: 288.0011pt x 129.20363pt.
 
 
@@ -990,7 +1009,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[7 <./img/legv8_instruction_set.png> <./img/instruction_types.png>])
+[7 <./img/5_stage_pipeline.png> <./img/legv8_instruction_set.png>])
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1000,7 +1019,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[8] (Main/Chapter1.tex
+[8 <./img/instruction_types.png>] (Main/Chapter1.tex
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
 6.
@@ -1037,15 +1056,20 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-<img/old_single_cycle.jpeg, id=239, 1750.54pt x 904.37875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
+
+ []
+
+<img/old_single_cycle.jpeg, id=242, 1750.54pt x 904.37875pt>
 File: img/old_single_cycle.jpeg Graphic file (type jpg)
 <use img/old_single_cycle.jpeg>
-Package pdftex.def Info: img/old_single_cycle.jpeg  used on input line 87.
+Package pdftex.def Info: img/old_single_cycle.jpeg  used on input line 88.
 (pdftex.def)             Requested size: 306.0022pt x 158.08925pt.
-<img/old_pipeline.jpeg, id=240, 1750.54pt x 1211.52625pt>
+<img/old_pipeline.jpeg, id=243, 1750.54pt x 1211.52625pt>
 File: img/old_pipeline.jpeg Graphic file (type jpg)
 <use img/old_pipeline.jpeg>
-Package pdftex.def Info: img/old_pipeline.jpeg  used on input line 91.
+Package pdftex.def Info: img/old_pipeline.jpeg  used on input line 92.
 (pdftex.def)             Requested size: 306.0022pt x 211.77994pt.
 
 
@@ -1068,25 +1092,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3 <./img/old_single_cycle.jpeg> <./img/old_pipeline.jpeg>]
-<img/br_bug_1.png, id=257, 657.45625pt x 506.89375pt>
+<img/br_bug_1.png, id=260, 657.45625pt x 506.89375pt>
 File: img/br_bug_1.png Graphic file (type png)
 <use img/br_bug_1.png>
-Package pdftex.def Info: img/br_bug_1.png  used on input line 129.
+Package pdftex.def Info: img/br_bug_1.png  used on input line 130.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/br_bug_2.png, id=258, 657.45625pt x 506.89375pt>
+<img/br_bug_2.png, id=261, 657.45625pt x 506.89375pt>
 File: img/br_bug_2.png Graphic file (type png)
 <use img/br_bug_2.png>
-Package pdftex.def Info: img/br_bug_2.png  used on input line 130.
+Package pdftex.def Info: img/br_bug_2.png  used on input line 131.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/br_bug_3.png, id=259, 657.45625pt x 506.89375pt>
+<img/br_bug_3.png, id=262, 657.45625pt x 506.89375pt>
 File: img/br_bug_3.png Graphic file (type png)
 <use img/br_bug_3.png>
-Package pdftex.def Info: img/br_bug_3.png  used on input line 131.
+Package pdftex.def Info: img/br_bug_3.png  used on input line 132.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/br_bug_4.png, id=260, 657.45625pt x 506.89375pt>
+<img/br_bug_4.png, id=263, 657.45625pt x 506.89375pt>
 File: img/br_bug_4.png Graphic file (type png)
 <use img/br_bug_4.png>
-Package pdftex.def Info: img/br_bug_4.png  used on input line 132.
+Package pdftex.def Info: img/br_bug_4.png  used on input line 133.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
 
 
@@ -1099,25 +1123,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [4]
-<img/cmp_bug_1.png, id=267, 657.45625pt x 506.89375pt>
+<img/cmp_bug_1.png, id=270, 657.45625pt x 506.89375pt>
 File: img/cmp_bug_1.png Graphic file (type png)
 <use img/cmp_bug_1.png>
-Package pdftex.def Info: img/cmp_bug_1.png  used on input line 138.
+Package pdftex.def Info: img/cmp_bug_1.png  used on input line 139.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/cmp_bug_2.png, id=268, 657.45625pt x 506.89375pt>
+<img/cmp_bug_2.png, id=271, 657.45625pt x 506.89375pt>
 File: img/cmp_bug_2.png Graphic file (type png)
 <use img/cmp_bug_2.png>
-Package pdftex.def Info: img/cmp_bug_2.png  used on input line 139.
+Package pdftex.def Info: img/cmp_bug_2.png  used on input line 140.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/cmp_bug_3.png, id=269, 657.45625pt x 506.89375pt>
+<img/cmp_bug_3.png, id=272, 657.45625pt x 506.89375pt>
 File: img/cmp_bug_3.png Graphic file (type png)
 <use img/cmp_bug_3.png>
-Package pdftex.def Info: img/cmp_bug_3.png  used on input line 140.
+Package pdftex.def Info: img/cmp_bug_3.png  used on input line 141.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/cmp_bug_4.png, id=270, 657.45625pt x 506.89375pt>
+<img/cmp_bug_4.png, id=273, 657.45625pt x 506.89375pt>
 File: img/cmp_bug_4.png Graphic file (type png)
 <use img/cmp_bug_4.png>
-Package pdftex.def Info: img/cmp_bug_4.png  used on input line 141.
+Package pdftex.def Info: img/cmp_bug_4.png  used on input line 142.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
 
 
@@ -1130,13 +1154,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [5 <./img/br_bug_1.png> <./img/br_bug_2.png> <./img/br_bug_3.png> <./img/br_bug
-_4.png>]
-Overfull \hbox (0.4743pt too wide) in paragraph at lines 152--153
-[]\T1/cmr/m/n/10.95 My pre-existing knowl-edge of Java and build au-toma-tion s
-ys-tems would
- []
-
-) (Main/Chapter2.tex
+_4.png>]) (Main/Chapter2.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1311,51 +1329,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Thesis.out':
-(rerunfilecheck)             Before: 22BB78F0B578FED9C575A6B6E23349C6;2513
-(rerunfilecheck)             After:  33E920F03871A1435FDC12517BF7DF82;2513.
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 33E920F03871A1435FDC12517BF7DF82;2513.
  ) 
 Here is how much of TeX's memory you used:
- 23659 strings out of 473904
- 444735 string characters out of 5726128
+ 23666 strings out of 473904
+ 444985 string characters out of 5726128
  1941908 words of memory out of 5000000
- 45955 multiletter control sequences out of 15000+600000
+ 45962 multiletter control sequences out of 15000+600000
  576341 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,107p,1208b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{chapter*.21} has been referenced but does not exist
-, replaced by a fixed one
-
- <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0
-900.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ectt1000.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\ecbx1000.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ecbx2074.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts
-/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\simone\AppData\Local\MiKTe
-X\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\simone\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\simone\AppDa
-ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\simon
-e\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\User
-s\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <
-C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm120
-0.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecrm1728.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecbx1440.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx1728.pk>
-Output written on Thesis.pdf (35 pages, 1714792 bytes).
+ 99i,13n,107p,1252b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
+m0900.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\ectt1000.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\ecbx1000.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\ecbx2074.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/l
+jfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\simone\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\simone\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\simone\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\simone\App
+Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\sim
+one\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Us
+ers\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
+ <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
+200.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecrm1728.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecbx1440.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecbx1728.pk>
+Output written on Thesis.pdf (35 pages, 1840209 bytes).
 PDF statistics:
- 978 PDF objects out of 1000 (max. 8388607)
+ 981 PDF objects out of 1000 (max. 8388607)
  102 named destinations out of 1000 (max. 500000)
- 285 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 290 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -73,6 +73,7 @@ They utilize high level languages such as C++, Python, Swift, TypeScript and Jav
 
 They use mostly Verilog as their hardware description language and implement an incomplete subset of the LEGv8 ISA. Some of them follow closely the design of the textbook while others expand upon it adding more executable instructions. None of them offer a graphical interface nor implement the ISA in its entirety.
 \\
+
 It is clear from this brief survey that the LEGv8 simulators space lacks any desirable candidates for code execution and inspection, as the software simulators are incomplete and platform-dependant, and the hardware ones lack interactivity and comprehensive visual output capabilities.
 
 \section*{ARM's LEGv8 simulator}
@@ -99,7 +100,7 @@ This simulator presents many favorable characteristics:
 \begin{itemize}[label=\textendash]
 	\item Written in Java (platform agnostic, extensible)
 	\item Compiled as a web application (platform agnostic and easily deployable)
-	\item Embedded text editor to input code with and error display
+	\item Embedded text editor to input code with, and error display
 	\item Clear and rich visualization of the \emph{X} and flag registers and the datapath of the CPU
 	\item Almost all of the integer arithmetic is already implemented
 	\item All types of integer \emph{LOAD} and \emph{STORE} instructions are already implemented, including \emph{STXUR} and \emph{LDXUR}
@@ -112,31 +113,31 @@ This simulator presents many favorable characteristics:
 Unfortunately many problems present themselves when trying to run or develop the simulator:
 
 \begin{itemize}[label=\textendash]
-	\item Absence of any documentation on how to build the project
-	\item Executable version distributed in web page form
+	\item Absence of any documentation on how to build the project and design choices behind it
+	\item Executable version distributed in automatically-generated web page form
 	\item Pipeline execution is incomplete
-	\item The branch and link instruction writes the incorrect address into the LR register, making it impossible to write subroutines as they loop forever
-	\item The integer comparisons do not work properly, making it impossible to perform any kind of loop or branch
+	\item The mechanism for calling subroutines is broken and results in infinite loops, making it impossible to delegate code to other functions
+	\item The mechanism for performing comparisons is broken and results in the wrong branches being taken, making it impossible to perform conditional operations and loops
 	\item The project is heavily dependent on the Eclipse Java IDE with an old GWT plugin to perform the build process
 	\item The project depends on the outdated and barely supported GWT library to deploy the simulator as a web application. This restricts the developers from using newer Java features or better web frameworks.
 \end{itemize}
 
 
-I present below a demonstration of the bugs regarding the branch and link instruction and the integer comparisons:
+I present below a demonstration of the bugs regarding the subroutine calls and number comparisons:
 
 \begin{figure}[H]
 	\centering
-	\subfigure[BL writes the wrong address to LR]{\includegraphics[width=.45\textwidth]{img/br_bug_1.png}}
-	\subfigure[Jumps to label and increments X0]{\includegraphics[width=.45\textwidth]{img/br_bug_2.png}}
+	\subfigure[BL instruction writes the incorrect address to the return register (LR)]{\includegraphics[width=.45\textwidth]{img/br_bug_1.png}}
+	\subfigure[Jumps to the subroutine and increments X0]{\includegraphics[width=.45\textwidth]{img/br_bug_2.png}}
 	\subfigure[Reads wrong address from LR]{\includegraphics[width=.45\textwidth]{img/br_bug_3.png}}
-	\subfigure[Returns to wrong address]{\includegraphics[width=.45\textwidth]{img/br_bug_4.png}}
+	\subfigure[Returns to the start of the subroutine instead of the main program]{\includegraphics[width=.45\textwidth]{img/br_bug_4.png}}
 	\caption{Branch returns to the wrong instruction, making it execute the branch in a loop}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\subfigure[X0 < X1]{\includegraphics[width=.45\textwidth]{img/cmp_bug_1.png}}
-	\subfigure[Comparison fails]{\includegraphics[width=.45\textwidth]{img/cmp_bug_2.png}}
+	\subfigure[Comparison sets the flags incorrectly]{\includegraphics[width=.45\textwidth]{img/cmp_bug_2.png}}
 	\subfigure[Branch gets ignored]{\includegraphics[width=.45\textwidth]{img/cmp_bug_3.png}}
 	\subfigure[Wrong instruction executed]{\includegraphics[width=.45\textwidth]{img/cmp_bug_4.png}}
 	\caption{Comparisons do not set the correct flags and thus fail}
@@ -144,11 +145,11 @@ I present below a demonstration of the bugs regarding the branch and link instru
 
 \subsection*{Motivations}
 
-For these reasons then this simulator was chosen as the subject of my thesis:
+For these reasons, this simulator was chosen as the subject of my thesis:
 
 \begin{itemize}[label=\textendash]
 	\item Maximize the impact of my work by fixing and improving the most popular simulator available
 	\item Provide the first complete implementation of the LEGv8 instruction set
-	\item My pre-existing knowledge of Java and build automation systems would allow me to quickly get up to speed and extend the codebase efficiently
 	\item Allow the Digital Systems Architecture course at UniTS and other courses in general to have a working LEGv8 simulator for more effective teaching
+	\item Opportunity to work on a real Java code base
 \end{itemize}
