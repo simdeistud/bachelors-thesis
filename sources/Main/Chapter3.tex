@@ -113,7 +113,7 @@ Then to Decoder.java
 Then they had to be added to \verb|TokenType.java| to use with the parser
 \begin{lstlisting}[caption={Addition to the parser}]
 	...
-		MNEMONIC_RRR("ADDS?[ \t]+|SUBS?[ \t]+|ANDS?[ \t]+|MUL[ \t]+|SMULH[ \t]+|UMULH[ \t]+|SDIV[ \t]+|UDIV[ \t]+|ORR[ \t]+|EOR[ \t]+|adds?[ \t]+|fmul[sd]?[ \t]+|fdiv[sd]?[ \t]+|subs?[ \t]+|ands?[ \t]+|mul[ \t]+|smulh[ \t]+|umulh[ \t]+|sdiv[ \t]+|udiv[ \t]+|orr[ \t]+|eor[ \t]+", 15, "MNEMONIC"),
+		MNEMONIC_RRR("ADDS?[ \t]+|SUBS?[ \t]+|ANDS?[ \t]+|MUL[ \t]+|SMULH[ \t]+|UMULH[ \t]+|SDIV[ \t]+|UDIV[ \t]+|ORR[ \t]+|EOR[ \t]+|adds?[ \t]+|subs?[ \t]+|ands?[ \t]+|mul[ \t]+|smulh[ \t]+|umulh[ \t]+|sdiv[ \t]+|udiv[ \t]+|orr[ \t]+|eor[ \t]+", 15, "MNEMONIC"),
 	...
 \end{lstlisting}
 And finally they had to be implemented inside \verb|CPU.java| to execute the operations
@@ -157,10 +157,146 @@ Of course this could have been done in more primitive ways through the use of ar
 
 \paragraph*{Visualizing the stack}
 
-After finishing implementing the integer arithmetic it was time to make the stack visible inside the web interface. This was done by reutilizing the same structure that allowed for the visualization of the \verb|X| registers and slightly tweaking it for memory usage by .
+After finishing implementing the integer arithmetic it was time to make the stack visible inside the web interface. This was done by reutilizing the same structure of \verb|RegisterPanel.java|. As it's evident from \verb|StackPanel.java|, the stack visualization includes the address of the double word stored and only shows hexadecimal values, unlike with \verb|X| registers where you can convert between hex and decimal signed representation.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.8\textwidth]{img/stack_vis.png}
+	\caption{The newly introduced stack visualization}
+\end{figure}
 
 \paragraph*{Implementing floating point arithmetic}
+
+Since the simulator was built with integer arithmetic in mind, all the additions made until now did not require any change to the underlying logic and structure of the code base. Introducing floating point operations on the other hand, required updating other parts of the logic that were previously left untouched.
+
 \subparagraph*{Adding floating point registers}
+
+The introduction of two new types of registers required the creation of a new \verb|Register.java| type. This new class includes the \emph{type} of the register, its \emph{content} (i.e. the bits stored inside) and the methods to write and read from it. I have chosen to memorize the bits inside of the registers as a \verb|long| value regardless of the register type. This is because Java offers utility methods to convert \verb|float|s into \verb|int| bits, \verb|double|s into \verb|long| bits, and vice versa, I simply applied these conversions when reading and writing to the registers. This way, the \verb|long| and \verb|int| values used throughout the simulator become just sequences of bits without an implicit interpretation. Although this choice might not be obvious when reading the code since no binary type was introduced, one of its advantages has been that the \verb|Memory.java| class has not required any changes to keep working correctly.
+
 \subparagraph*{Adding floating point operations}
+
+Having added the new registers to \verb|CPU.java|, it was now possible to implement all the floating point operations. Just like before, different classes had to be modified, but right now I will focus on the operations done by the CPU.
+
+	\begin{lstlisting}[caption={FADDS}]
+		...
+		DRegisterFile[destReg].writeWord(Float.floatToIntBits(
+		Float.intBitsToFloat(DRegisterFile[op1Reg].readWord()) +
+		Float.intBitsToFloat(DRegisterFile[op2Reg].readWord())
+		));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={FADDD}]
+		...
+		DRegisterFile[destReg].writeDoubleWord(Double.doubleToLongBits(
+		Double.longBitsToDouble(DRegisterFile[op1Reg].readDoubleWord()) +
+		Double.longBitsToDouble(DRegisterFile[op2Reg].readDoubleWord())
+		));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={FCMPS}]
+		...
+		float op1f = Float.intBitsToFloat(DRegisterFile[op1Reg].readWord());
+		float op2f = Float.intBitsToFloat(DRegisterFile[op2Reg].readWord());
+		FCMPSetFlags(Float.compare(op1f, op2f), Float.isNaN(op1f) || Float.isNaN(op1f));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={FCMPD}]
+		...
+		double op1d = Double.longBitsToDouble(DRegisterFile[op1Reg].readDoubleWord());
+		double op2d = Double.longBitsToDouble(DRegisterFile[op2Reg].readDoubleWord());
+		FCMPSetFlags(Double.compare(op1d, op2d), Double.isNaN(op1d) || Double.isNaN(op2d));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={Function for setting floating point comparison flags}]
+		private void FCMPSetFlags(int comparisonResult, boolean isNaN) {
+			setNflag(comparisonResult < 0 && !isNaN);
+			setZflag(comparisonResult == 0 && !isNaN);
+			setCflag(comparisonResult >= 0 || isNaN);
+			setVflag(isNaN);
+		}
+	\end{lstlisting}
+	
+	It's important to note that the LEGv8 specification does not say how flags should be set in case of floating point comparison. As a guideline my supervisor Prof. Carini decided to use ARM's official documentation regarding IEEE 754 \footnote{\url{https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/condition-codes-4-floating-point-comparisons-using-vfp}}. Since Java offers the same comparison utility methods and criteria for single and double precision floating point numbers, a single method needed to be written.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=.8\textwidth]{img/ieee754_flags.png}
+		\caption{The flag setting convention for floating point comparisons.}
+	\end{figure}
+	
+	\begin{lstlisting}[caption={FDIVS}]
+		...
+		DRegisterFile[destReg].writeWord(Float.floatToIntBits(
+		Float.intBitsToFloat(DRegisterFile[op1Reg].readWord()) /
+		Float.intBitsToFloat(DRegisterFile[op2Reg].readWord())
+		));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={FDIVD}]
+		...
+		DRegisterFile[destReg].writeDoubleWord(Double.doubleToLongBits(
+		Double.longBitsToDouble(DRegisterFile[op1Reg].readDoubleWord()) /
+		Double.longBitsToDouble(DRegisterFile[op2Reg].readDoubleWord())
+		));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={FMULS}]
+		...
+		DRegisterFile[destReg].writeWord(Float.floatToIntBits(
+		Float.intBitsToFloat(DRegisterFile[op1Reg].readWord()) *
+		Float.intBitsToFloat(DRegisterFile[op2Reg].readWord())
+		));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={FMULD}]
+		...
+		DRegisterFile[destReg].writeDoubleWord(Double.doubleToLongBits(
+		Double.longBitsToDouble(DRegisterFile[op1Reg].readDoubleWord()) *
+		Double.longBitsToDouble(DRegisterFile[op2Reg].readDoubleWord())
+		));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={FSUBS}]
+		...
+		DRegisterFile[destReg].writeWord(Float.floatToIntBits(
+		Float.intBitsToFloat(DRegisterFile[op1Reg].readWord()) -
+		Float.intBitsToFloat(DRegisterFile[op2Reg].readWord())
+		));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={FSUBD}]
+		...
+		DRegisterFile[destReg].writeDoubleWord(Double.doubleToLongBits(
+		Double.longBitsToDouble(DRegisterFile[op1Reg].readDoubleWord()) -
+		Double.longBitsToDouble(DRegisterFile[op2Reg].readDoubleWord())
+		));
+		...
+	\end{lstlisting}
+	
+	As we can see from the last four instructions, the floating point registers, just like their integer counterpart, write and read values from the memory in the exact same way without any change to the logic. In fact, these methods could be refactored and grouped together to reduce code duplication.
+	
+	\begin{lstlisting}[caption={LDURS}]
+		...
+		DRegisterFile[destReg].writeWord((int) memory.loadDoubleword(XRegisterFile[baseAddressReg].readDoubleWord()+offset));
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={LDURD}]
+		...
+		DRegisterFile[destReg].writeDoubleWord(memory.loadDoubleword(XRegisterFile[baseAddressReg].readDoubleWord()+offset));
+		...
+	\end{lstlisting}
+	
+	\begin{lstlisting}[caption={STURS}]
+		...
+		memory.storeWord(XRegisterFile[baseAddressReg].readDoubleWord()+offset, DRegisterFile[valReg].readDoubleWord());
+		...
+	\end{lstlisting}
+	\begin{lstlisting}[caption={STURD}]
+		...
+		memory.storeDoubleword(XRegisterFile[baseAddressReg].readDoubleWord()+offset, DRegisterFile[valReg].readDoubleWord());
+		...
+	\end{lstlisting}
+
+\subparagraph*{Refactoring the parser}
 \subparagraph*{Visualizing the new registers}
 \subparagraph*{Visualizing the data path}

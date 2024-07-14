@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  14 JUL 2024 19:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  14 JUL 2024 23:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1305,7 +1305,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[14]) (Main/Chapter4.tex
+[14]
+<img/stack_vis.png, id=410, 424.58624pt x 244.66406pt>
+File: img/stack_vis.png Graphic file (type png)
+<use img/stack_vis.png>
+Package pdftex.def Info: img/stack_vis.png  used on input line 164.
+(pdftex.def)             Requested size: 288.0011pt x 165.96616pt.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1315,24 +1321,81 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[15]
+[15 <./img/stack_vis.png>]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 219--219
+[][][][][]$\T1/cmtt/m/n/9 https : / / community . arm . com / arm-[]community-[
+]blogs / b /
+ []
+
+
+Overfull \hbox (89.04156pt too wide) in paragraph at lines 219--219
+\T1/cmtt/m/n/9 architectures-[]and-[]processors-[]blog / posts / condition-[]co
+des-[]4-[]floating-[]point-[]comparisons-[]using-[]vfp$[][]| 
+ []
+
+<img/ieee754_flags.png, id=453, 696.35156pt x 167.12437pt>
+File: img/ieee754_flags.png Graphic file (type png)
+<use img/ieee754_flags.png>
+Package pdftex.def Info: img/ieee754_flags.png  used on input line 223.
+(pdftex.def)             Requested size: 288.0011pt x 69.1207pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[17 <./img/ieee754_flags.png>]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[18]) (Main/Chapter4.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[19]
 Chapter 4.
 ) (Back/Conclusions.tex
 
-[16
+[20
 
 ])
 
-[17
+[21
 
 ] (Thesis.bbl) (Back/Acknowledgements.tex
 
-[18
+[22
 
 
 ])
 
-[19
+[23
 
 ] (Thesis.aux)
  ***********
@@ -1340,16 +1403,16 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 8768F6BFB146B2E5CA026511694524D6;1178.
+(rerunfilecheck)             Checksum: 5DDD3512FF984419FD5AEE7658A5A2B7;1178.
  ) 
 Here is how much of TeX's memory you used:
- 25508 strings out of 473904
- 469598 string characters out of 5726128
- 2253908 words of memory out of 5000000
- 47682 multiletter control sequences out of 15000+600000
+ 25660 strings out of 473904
+ 472059 string characters out of 5726128
+ 2245908 words of memory out of 5000000
+ 47720 multiletter control sequences out of 15000+600000
  579683 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,101p,1525b,2064s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,13n,101p,1525b,2066s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
 m0800.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
 600\ecrm0900.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
@@ -1369,9 +1432,9 @@ c/dpi600\ecrm1200.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
 appen/ec/dpi600\ecrm1728.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljf
 our/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts
 /pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
-Output written on Thesis.pdf (28 pages, 1872734 bytes).
+Output written on Thesis.pdf (32 pages, 1933429 bytes).
 PDF statistics:
- 1164 PDF objects out of 1200 (max. 8388607)
- 211 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1325 PDF objects out of 1440 (max. 8388607)
+ 325 named destinations out of 1000 (max. 500000)
+ 164 words of extra memory for PDF output out of 10000 (max. 10000000)
 
