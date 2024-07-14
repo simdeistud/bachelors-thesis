@@ -1,3 +1,31 @@
 \chapter{Building and modernizing the code base}\label{chap:sit}
 
 \epigraph{``Much of the excitement we get out of our work is that we don't really know what we are doing''}{\textit{Edsger W. Dijkstra}}
+
+\subsection*{Getting the project to compile}
+
+As was pointed out in Chapter 1, the project's documentation lacks any kind of indications of how to successfully build it \footnote{\url{https://raw.githubusercontent.com/arm-university/Graphical-Micro-Architecture-Simulator/main/README.md}}.
+The presence of a \emph{.project} file indicates that at some point it was developed using the Eclipse IDE \footnote{\url{https://www.eclipse.org/}}. Furthermore the existence of a \emph{.gwt.xml} file \footnote{\url{https://raw.githubusercontent.com/arm-university/Graphical-Micro-Architecture-Simulator/main/LEGv8_Simulator/src/com/arm/legv8simulator/LEGv8_Simulator.gwt.xml}} makes it clear that the GWT framework \footnote{\url{https://www.gwtproject.org/}} is being used to generate the web application. Its contents tell us that the JDK version to use is Java 8, since that's the latest GWT v2.7 (partially) supports \footnote{As we can see, until v2.8, GWT didn't even support basic Java constructs such as Map, Arrays, BigInteger, Stream, etc. \url{https://www.gwtproject.org/release-notes.html#Release_Notes_2_8_0}}. By reading the file we also discover that the project uses a module called AceGWT \footnote{\url{https://github.com/daveho/AceGWT}}, a port of an older version of the ACE editor \footnote{\url{https://ace.c9.io/}} that implement GWT bindings and allows the web application to embed a text editor. The project uses the 1.0.0 release of AceGWT \footnote{\url{https://github.com/daveho/AceGWT/releases/tag/1.0.0}} which predates its integration with Maven \footnote{Maven is a build automation system that allows to automatically fetch and import libraries to your Java project and compile and deploy it: \url{https://maven.apache.org}}.
+\newline
+By piecing together these clues I cloned the repository, downloaded both the GWT v2.7 and AceGWT's 1.0.0 releases and imported the project into Eclipse. GWT's website also suggests using GWT's Eclipse plugin \footnote{\url{https://www.gwtproject.org/usingeclipse.html}}, so that was installed as well.
+\newline
+The project expected to have access to some files and libraries in certain places, so by configuring correctly the build path of the project I was able to get it to finally compile \footnote{The entire process is available as a PDF file or static web page: \url{https://github.com/arm-university/Graphical-Micro-Architecture-Simulator/pull/7}}.
+\newline
+This set-up allowed me to do most of the work presented in this thesis, but presented a few glaring problems when thinking about the future maintainability of the software:
+
+\begin{itemize}[label=\textendash]
+	\item Changes to the Eclipse IDE introduced after version 2023-09 have made it impossible to install the GWT plugin. This means that any future development would need to happen on an old version of the IDE unless an official fix was provided.
+	\item Both AceGWT and GWT have switched to Maven in their latest releases, making the importing, dependency management, and building of the code base automatic.
+	\item The project uses an old version of GWT and could make use of the new features implemented in the newer releases.
+	\item Downloading the dependencies and manually setting up the project from a non-working state each time is a tedious and finnicky process that cannot be depended upon in case something changes to the IDE.
+	\item The project is forever bounded to the Eclipse IDE, meaning it cannot be automatically built headlessly through a script or developed using more modern and featureful IDEs.
+	\item The building process is not well configured. For example, it's not possible to change the directory where the web application is compiled and all the web resources need ot be already present in the output folder otherwise the web application cannot be launched. 
+\end{itemize}
+
+Thus, my aim was to make the project as agnostic as possible and turn the set-up into a 1-click process to make it viable for future developers to get started collaborating without any roadblocks. This has been mostly achieved by porting the project to Maven, and in the process making a few updates to the environment.
+
+\subsection*{Modernizing the project and porting to Maven}
+
+This part of my work progressed through much trial and error. After reading through the Maven and GWT documentation and creating empty GWT projects using their newest tools, I figured out how to configure Maven's \emph{pom.xml} and GWT's \emph{.gwt.xml} files to correctly import the latest version of GWT and make it recognize the project as a GWT web application. As part of the modernization, I created a local Maven repository in which I built a custom version of AceGWT using the latest version of GWT. Lastly, even though GWT still doesn't support the entirety of Java 8, it is possible to use JDK 21 to build the project and utilize some newer Java features in the code.
+\newline
+After all of this was done, downloading, configuring, and building the project was reduced to running \emph{git clone} and \emph{mvn package} inside the project's directory when using the command line. This also made it possible to import and develop the project on any Java IDE that supports Maven by doing the same steps using the IDE's graphical workflow.

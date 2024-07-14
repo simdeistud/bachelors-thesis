@@ -1,3 +1,76 @@
 \chapter{Bug fixing and new features}\label{chap:lipsum}
 
 \epigraph{``If debugging is the process of removing software bugs, then programming must be the process of putting them in.''}{\textit{Edsger W. Dijkstra}}
+
+\subsection*{Getting the project to a working state}
+
+\subparagraph*{The flag setting bug}
+
+In LEGv8, CMP and CMPI are pseudoinstructions, meaning that under the hood they actually make use of the SUBS and SUBIS instructions respectively to set the compare flags. The fact that the former instructions failed, pointed at a problem in the latter ones, which was proven to be correct. The simulator first implements the function responsible for setting the flags of the addition operations and when setting the flags for the subtraction operations it simply calls the same function with the same arguments.
+\begin{lstlisting}[caption={The adddition flag-setting code}]
+	private void ADDSetFlags(long result, long op1, long op2) {
+		setNflag(result < 0);
+		setZflag(result == 0);
+		setCflag(result, op1, op2);
+		setVflag(result, op1, op2);
+	}
+\end{lstlisting}
+\begin{lstlisting}[caption={The buggy subtraction flag-setting code}]
+	private void SUBSetFlags(long result, long op1, long op2) {
+		ADDSetFlags(result, op1, op2);
+	}
+\end{lstlisting}
+As we can see, this presents a problem since subtraction and addition set their flags in a different way. The fix was simply to call the same function but with the 2-complement of the second operand.
+\begin{lstlisting}[caption={The fixed subtraction flag-setting code}]
+	private void SUBSetFlags(long result, long op1, long op2) {
+		ADDSetFlags(result, op1, (~op2)+1);
+	}
+\end{lstlisting}
+
+\subparagraph*{The branch return bug}
+
+For this bug, inspecting the LR register showed that the BL instruction was not writing the register with the address of the current instruction, but with the subroutine's one instead. This created an infinite loop since, when the subroutine returned to the LR, the program would jump back to the beginning of the subroutine all over again.
+\begin{lstlisting}[caption={The buggy address writing}]
+	private void BL(int branchIndex) {
+		instructionIndex = branchIndex;
+		XRegisterFile[LR].writeDoubleWord(instructionIndex * INSTRUCTION_SIZE + Memory.TEXT_SEGMENT_OFFSET);
+		...
+	}
+\end{lstlisting}
+As we can see, the instructionIndex is updated too soon and thus the LR register gets written with the address of the branch.
+\begin{lstlisting}[caption={The fixed address writing}]
+	private void BL(int branchIndex) {
+		XRegisterFile[LR].writeDoubleWord(instructionIndex * INSTRUCTION_SIZE + Memory.TEXT_SEGMENT_OFFSET);
+		instructionIndex = branchIndex;
+		...
+	}
+\end{lstlisting}
+
+\subparagraph*{The datapath visualization bug}
+An issue that was raised on GitHub \footnote{\url{https://github.com/arm-university/Graphical-Micro-Architecture-Simulator/issues/8}} complained about erroneous values of the MemWrite and MemRead signals from the control unit. This was a problem in the configuration.
+\begin{lstlisting}[caption={Buggy SingleCycleVis.java}]
+	...
+	ctx.fillText(ControlUnitConfiguration.toString(c.memRead), DATA_MEM_COORDS[0]+DATA_MEM_DIMENSIONS[0]/2-t.getWidth()-1, DATA_MEM_COORDS[1]-3);
+	ctx.fillText(ControlUnitConfiguration.toString(c.memToReg), MUX_READ_DATA_MEM_COORDS[0]+MUX_READ_DATA_MEM_DIMENSIONS[0]/2-t.getWidth()-1, MUX_READ_DATA_MEM_COORDS[1]-3);
+	ctx.fillText(ControlUnitConfiguration.toString(c.memRead), DATA_MEM_COORDS[0]+DATA_MEM_DIMENSIONS[0]/2-t.getWidth()-1, DATA_MEM_COORDS[1]+DATA_MEM_DIMENSIONS[1]+10);
+	...
+\end{lstlisting}
+\begin{lstlisting}[caption={Fixed SingleCycleVis.java}]
+	...
+	ctx.fillText(ControlUnitConfiguration.toString(c.memWrite), DATA_MEM_COORDS[0]+DATA_MEM_DIMENSIONS[0]/2-t.getWidth()-1, DATA_MEM_COORDS[1]-3);
+	ctx.fillText(ControlUnitConfiguration.toString(c.memToReg), MUX_READ_DATA_MEM_COORDS[0]+MUX_READ_DATA_MEM_DIMENSIONS[0]/2-t.getWidth()-1, MUX_READ_DATA_MEM_COORDS[1]-3);
+	ctx.fillText(ControlUnitConfiguration.toString(c.memRead), DATA_MEM_COORDS[0]+DATA_MEM_DIMENSIONS[0]/2-t.getWidth()-1, DATA_MEM_COORDS[1]+DATA_MEM_DIMENSIONS[1]+10);
+	...
+\end{lstlisting}
+\begin{lstlisting}[caption={BuggyControlUnitConfiguration.java}]
+	...
+	RM_LOAD(null, false, false, false, false, true, true, false, true, 0, true),
+	...
+\end{lstlisting}
+\begin{lstlisting}[caption={Fixed ControlUnitConfiguration.java}]
+	...
+	RM_LOAD(null, false, false, false, true, true, false, false, true, 0, true),
+	...
+\end{lstlisting}
+
+\subsection*{Adding new features}
