@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  14 JUL 2024 13:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  14 JUL 2024 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -858,7 +858,7 @@ Package hyperref Info: Link coloring ON on input line 4.
 \@outlinefile=\write5
 \openout5 = `Thesis.out'.
 
-<img/units_logo.pdf, id=102, 702.53722pt x 702.53722pt>
+<img/units_logo.pdf, id=34, 702.53722pt x 702.53722pt>
 File: img/units_logo.pdf Graphic file (type pdf)
 <use img/units_logo.pdf>
 Package pdftex.def Info: img/units_logo.pdf  used on input line 14.
@@ -922,7 +922,7 @@ l.79 \tableofcontents
 [3
 
 ]
-<img/legv8_logical_scheme.png, id=164, 794.97pt x 620.3175pt>
+<img/legv8_logical_scheme.png, id=79, 794.97pt x 620.3175pt>
 File: img/legv8_logical_scheme.png Graphic file (type png)
 <use img/legv8_logical_scheme.png>
 Package pdftex.def Info: img/legv8_logical_scheme.png  used on input line 35.
@@ -938,7 +938,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [4 <./img/legv8_logical_scheme.png>]
-<img/registers_conventions.png, id=176, 612.03656pt x 415.5525pt>
+<img/registers_conventions.png, id=91, 612.03656pt x 415.5525pt>
 File: img/registers_conventions.png Graphic file (type png)
 <use img/registers_conventions.png>
 Package pdftex.def Info: img/registers_conventions.png  used on input line 47.
@@ -957,7 +957,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<img/main_memory_layout.png, id=177, 1170.3725pt x 534.99875pt>
+<img/main_memory_layout.png, id=92, 1170.3725pt x 534.99875pt>
 File: img/main_memory_layout.png Graphic file (type png)
 <use img/main_memory_layout.png>
 Package pdftex.def Info: img/main_memory_layout.png  used on input line 57.
@@ -973,7 +973,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [5 <./img/registers_conventions.png>]
-<img/5_stage_pipeline.png, id=186, 1006.76125pt x 136.51pt>
+<img/5_stage_pipeline.png, id=101, 1006.76125pt x 136.51pt>
 File: img/5_stage_pipeline.png Graphic file (type png)
 <use img/5_stage_pipeline.png>
 Package pdftex.def Info: img/5_stage_pipeline.png  used on input line 70.
@@ -989,12 +989,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [6 <./img/main_memory_layout.png>]
-<img/legv8_instruction_set.png, id=197, 1660.2025pt x 912.40875pt>
+<img/legv8_instruction_set.png, id=112, 1660.2025pt x 912.40875pt>
 File: img/legv8_instruction_set.png Graphic file (type png)
 <use img/legv8_instruction_set.png>
 Package pdftex.def Info: img/legv8_instruction_set.png  used on input line 77.
 (pdftex.def)             Requested size: 288.0011pt x 158.26778pt.
-<img/instruction_types.png, id=198, 586.19pt x 262.9825pt>
+<img/instruction_types.png, id=113, 586.19pt x 262.9825pt>
 File: img/instruction_types.png Graphic file (type png)
 <use img/instruction_types.png>
 Package pdftex.def Info: img/instruction_types.png  used on input line 84.
@@ -1022,14 +1022,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [8 <./img/instruction_types.png>] (Main/Chapter1.tex
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-6.
+4.
 (C:\Users\simone\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.36 	\end{tabular}}
+l.34 	\end{tabular}}
                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1047,7 +1047,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.70 	\end{tabular}}
+l.68 	\end{tabular}}
                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1057,19 +1057,19 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--76
+Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
 
-<img/old_single_cycle.jpeg, id=241, 1750.54pt x 904.37875pt>
+<img/old_single_cycle.jpeg, id=155, 1750.54pt x 904.37875pt>
 File: img/old_single_cycle.jpeg Graphic file (type jpg)
 <use img/old_single_cycle.jpeg>
-Package pdftex.def Info: img/old_single_cycle.jpeg  used on input line 88.
+Package pdftex.def Info: img/old_single_cycle.jpeg  used on input line 86.
 (pdftex.def)             Requested size: 306.0022pt x 158.08925pt.
-<img/old_pipeline.jpeg, id=242, 1750.54pt x 1211.52625pt>
+<img/old_pipeline.jpeg, id=156, 1750.54pt x 1211.52625pt>
 File: img/old_pipeline.jpeg Graphic file (type jpg)
 <use img/old_pipeline.jpeg>
-Package pdftex.def Info: img/old_pipeline.jpeg  used on input line 92.
+Package pdftex.def Info: img/old_pipeline.jpeg  used on input line 90.
 (pdftex.def)             Requested size: 306.0022pt x 211.77994pt.
 
 
@@ -1092,25 +1092,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3 <./img/old_single_cycle.jpeg> <./img/old_pipeline.jpeg>]
-<img/br_bug_1.png, id=259, 657.45625pt x 506.89375pt>
+<img/br_bug_1.png, id=173, 657.45625pt x 506.89375pt>
 File: img/br_bug_1.png Graphic file (type png)
 <use img/br_bug_1.png>
-Package pdftex.def Info: img/br_bug_1.png  used on input line 130.
+Package pdftex.def Info: img/br_bug_1.png  used on input line 128.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/br_bug_2.png, id=260, 657.45625pt x 506.89375pt>
+<img/br_bug_2.png, id=174, 657.45625pt x 506.89375pt>
 File: img/br_bug_2.png Graphic file (type png)
 <use img/br_bug_2.png>
-Package pdftex.def Info: img/br_bug_2.png  used on input line 131.
+Package pdftex.def Info: img/br_bug_2.png  used on input line 129.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/br_bug_3.png, id=261, 657.45625pt x 506.89375pt>
+<img/br_bug_3.png, id=175, 657.45625pt x 506.89375pt>
 File: img/br_bug_3.png Graphic file (type png)
 <use img/br_bug_3.png>
-Package pdftex.def Info: img/br_bug_3.png  used on input line 132.
+Package pdftex.def Info: img/br_bug_3.png  used on input line 130.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/br_bug_4.png, id=262, 657.45625pt x 506.89375pt>
+<img/br_bug_4.png, id=176, 657.45625pt x 506.89375pt>
 File: img/br_bug_4.png Graphic file (type png)
 <use img/br_bug_4.png>
-Package pdftex.def Info: img/br_bug_4.png  used on input line 133.
+Package pdftex.def Info: img/br_bug_4.png  used on input line 131.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
 
 
@@ -1123,25 +1123,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [4]
-<img/cmp_bug_1.png, id=269, 657.45625pt x 506.89375pt>
+<img/cmp_bug_1.png, id=183, 657.45625pt x 506.89375pt>
 File: img/cmp_bug_1.png Graphic file (type png)
 <use img/cmp_bug_1.png>
-Package pdftex.def Info: img/cmp_bug_1.png  used on input line 139.
+Package pdftex.def Info: img/cmp_bug_1.png  used on input line 137.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/cmp_bug_2.png, id=270, 657.45625pt x 506.89375pt>
+<img/cmp_bug_2.png, id=184, 657.45625pt x 506.89375pt>
 File: img/cmp_bug_2.png Graphic file (type png)
 <use img/cmp_bug_2.png>
-Package pdftex.def Info: img/cmp_bug_2.png  used on input line 140.
+Package pdftex.def Info: img/cmp_bug_2.png  used on input line 138.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/cmp_bug_3.png, id=271, 657.45625pt x 506.89375pt>
+<img/cmp_bug_3.png, id=185, 657.45625pt x 506.89375pt>
 File: img/cmp_bug_3.png Graphic file (type png)
 <use img/cmp_bug_3.png>
-Package pdftex.def Info: img/cmp_bug_3.png  used on input line 141.
+Package pdftex.def Info: img/cmp_bug_3.png  used on input line 139.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
-<img/cmp_bug_4.png, id=272, 657.45625pt x 506.89375pt>
+<img/cmp_bug_4.png, id=186, 657.45625pt x 506.89375pt>
 File: img/cmp_bug_4.png Graphic file (type png)
 <use img/cmp_bug_4.png>
-Package pdftex.def Info: img/cmp_bug_4.png  used on input line 142.
+Package pdftex.def Info: img/cmp_bug_4.png  used on input line 140.
 (pdftex.def)             Requested size: 161.9989pt x 124.89777pt.
 
 
@@ -1167,162 +1167,34 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [6 <./img/cmp_bug_1.png> <./img/cmp_bug_2.png> <./img/cmp_bug_3.png> <./img/cmp
 _bug_4.png>]
 Chapter 2.
-
+) (Main/Chapter3.tex
 
 [7
 
-]) (Main/Chapter3.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[8]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[9]
+]
 Chapter 3.
+) (Main/Chapter4.tex
 
+[8
+
+]
+Chapter 4.
+) (Back/Conclusions.tex
+
+[9
+
+])
 
 [10
 
-])
+] (Thesis.bbl) (Back/Acknowledgements.tex
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[11] (Main/Chapter4.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[12]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[13]
-Chapter 4.
-
-
-[14
-
-])
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[15] (Back/Conclusions.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[16]
-
-[17
-
-]) (Back/Appendix1.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[18]
-Appendix A.
-
-
-[19
-
-]) (Back/Appendix2.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[20]
-Appendix B.
-
-
-[21
-
-]) (Back/Appendix3.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[22]
-Appendix C.
-
-
-[23
-
-])
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[24] (Thesis.bbl) (Back/Acknowledgements.tex
-
-[25
+[11
 
 
 ])
 
-[26
+[12
 
 ] (Thesis.aux)
  ***********
@@ -1330,13 +1202,13 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 33E920F03871A1435FDC12517BF7DF82;2513.
+(rerunfilecheck)             Checksum: 92E61779890A9F883E3C195E1148EBC0;1219.
  ) 
 Here is how much of TeX's memory you used:
- 23664 strings out of 473904
- 444966 string characters out of 5726128
+ 23588 strings out of 473904
+ 443643 string characters out of 5726128
  1941908 words of memory out of 5000000
- 45961 multiletter control sequences out of 15000+600000
+ 45926 multiletter control sequences out of 15000+600000
  575566 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,13n,107p,1252b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1356,9 +1228,9 @@ ers\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk>
 728.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecbx1440.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
 c/dpi600\ecbx1728.pk>
-Output written on Thesis.pdf (35 pages, 1832811 bytes).
+Output written on Thesis.pdf (21 pages, 1780320 bytes).
 PDF statistics:
- 953 PDF objects out of 1000 (max. 8388607)
- 102 named destinations out of 1000 (max. 500000)
- 290 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 795 PDF objects out of 1000 (max. 8388607)
+ 70 named destinations out of 1000 (max. 500000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,25 +1,8 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{Summary}{i}{chapter*.1}%
 \contentsline {chapter}{Introduction}{iii}{chapter*.3}%
-\contentsline {chapter}{\numberline {1}}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Sit Amet}{7}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Lorem Ipsum}{7}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Dolor sit amet}{8}{subsection.2.1.1}%
-\contentsline {chapter}{\numberline {3}Lorem Ipsum}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Dolor}{10}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Sit amet}{11}{subsection.3.1.1}%
-\contentsline {chapter}{\numberline {4}Dolor}{14}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Lorem Ipsum}{14}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Dolor sit amet}{15}{subsection.4.1.1}%
-\contentsline {chapter}{Conclusions}{17}{chapter*.22}%
-\contentsline {section}{\numberline {4.2}Lorem Ipsum}{17}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Dolor sit amet}{18}{subsection.4.2.1}%
-\contentsline {chapter}{\numberline {A}Sit Amet}{19}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Lorem Ipsum}{19}{section.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Dolor sit amet}{20}{subsection.A.1.1}%
-\contentsline {chapter}{\numberline {B}Sit Amet}{21}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Lorem Ipsum}{21}{section.B.1}%
-\contentsline {subsection}{\numberline {B.1.1}Dolor sit amet}{22}{subsection.B.1.1}%
-\contentsline {chapter}{\numberline {C}Lorem}{23}{appendix.C}%
-\contentsline {section}{\numberline {C.1}Lorem Ipsum}{23}{section.C.1}%
-\contentsline {subsection}{\numberline {C.1.1}Dolor sit amet}{24}{subsection.C.1.1}%
+\contentsline {chapter}{\numberline {1}The LEGv8 simulators landscape}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Building and modernizing the code base}{7}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Bug fixing and new features}{8}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Current pitfalls and suggestions for the future}{9}{chapter.4}%
+\contentsline {chapter}{Conclusions}{10}{chapter*.21}%
