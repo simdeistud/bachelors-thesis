@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  14 JUL 2024 18:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  14 JUL 2024 19:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -935,7 +935,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.105 \tableofcontents
+l.104 \tableofcontents
                        [1
 
 
@@ -968,29 +968,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [4 <./img/legv8_logical_scheme.png>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
+2.
+
+(C:\Users\simone\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
 <img/registers_conventions.png, id=91, 612.03656pt x 415.5525pt>
 File: img/registers_conventions.png Graphic file (type png)
 <use img/registers_conventions.png>
 Package pdftex.def Info: img/registers_conventions.png  used on input line 47.
 (pdftex.def)             Requested size: 288.0011pt x 195.54431pt.
-
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \newline
-             
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
 <img/main_memory_layout.png, id=92, 1170.3725pt x 534.99875pt>
 File: img/main_memory_layout.png Graphic file (type png)
 <use img/main_memory_layout.png>
-Package pdftex.def Info: img/main_memory_layout.png  used on input line 57.
+Package pdftex.def Info: img/main_memory_layout.png  used on input line 56.
 (pdftex.def)             Requested size: 288.0011pt x 131.65135pt.
 
 
@@ -1003,10 +995,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [5 <./img/registers_conventions.png>]
-<img/5_stage_pipeline.png, id=101, 1006.76125pt x 136.51pt>
+<img/5_stage_pipeline.png, id=102, 1006.76125pt x 136.51pt>
 File: img/5_stage_pipeline.png Graphic file (type png)
 <use img/5_stage_pipeline.png>
-Package pdftex.def Info: img/5_stage_pipeline.png  used on input line 70.
+Package pdftex.def Info: img/5_stage_pipeline.png  used on input line 69.
 (pdftex.def)             Requested size: 288.0011pt x 39.04947pt.
 
 
@@ -1019,15 +1011,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [6 <./img/main_memory_layout.png>]
-<img/legv8_instruction_set.png, id=112, 1660.2025pt x 912.40875pt>
+<img/legv8_instruction_set.png, id=113, 1660.2025pt x 912.40875pt>
 File: img/legv8_instruction_set.png Graphic file (type png)
 <use img/legv8_instruction_set.png>
-Package pdftex.def Info: img/legv8_instruction_set.png  used on input line 77.
+Package pdftex.def Info: img/legv8_instruction_set.png  used on input line 76.
 (pdftex.def)             Requested size: 288.0011pt x 158.26778pt.
-<img/instruction_types.png, id=113, 586.19pt x 262.9825pt>
+<img/instruction_types.png, id=114, 586.19pt x 262.9825pt>
 File: img/instruction_types.png Graphic file (type png)
 <use img/instruction_types.png>
-Package pdftex.def Info: img/instruction_types.png  used on input line 84.
+Package pdftex.def Info: img/instruction_types.png  used on input line 83.
 (pdftex.def)             Requested size: 288.0011pt x 129.20363pt.
 
 
@@ -1051,11 +1043,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8 <./img/instruction_types.png>] (Main/Chapter1.tex
 Chapter 1.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-4.
-(C:\Users\simone\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
@@ -1281,7 +1268,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[11]) (Main/Chapter4.tex
+[11]
+Overfull \hbox (6.10945pt too wide) in paragraph at lines 80--81
+ []\T1/cmr/bx/n/10.95 Refactoring the mem-ory[] \T1/cmr/m/n/10.95 The [][]\T1/c
+mtt/m/n/10.95 ByteBuffer.java []\T1/cmr/m/n/10.95 and [][]\T1/cmtt/m/n/10.95 Me
+mory.java []\T1/cmr/m/n/10.95 classes
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1292,76 +1286,92 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [12]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[13]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[14]) (Main/Chapter4.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[15]
 Chapter 4.
 ) (Back/Conclusions.tex
 
-[13
+[16
 
 ])
 
-[14
+[17
 
 ] (Thesis.bbl) (Back/Acknowledgements.tex
 
-[15
+[18
 
 
 ])
 
-[16
+[19
 
 ] (Thesis.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Thesis.out':
-(rerunfilecheck)             Before: 7BAE50ABC4C35B53E89E820ABEAC9EBB;1219
-(rerunfilecheck)             After:  31BF21C782E8F801D69742EED5037275;1219.
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 8768F6BFB146B2E5CA026511694524D6;1178.
  ) 
 Here is how much of TeX's memory you used:
- 25408 strings out of 473904
- 468194 string characters out of 5726128
- 2082908 words of memory out of 5000000
- 47651 multiletter control sequences out of 15000+600000
+ 25508 strings out of 473904
+ 469598 string characters out of 5726128
+ 2253908 words of memory out of 5000000
+ 47682 multiletter control sequences out of 15000+600000
  579683 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,13n,101p,1525b,2064s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{chapter*.27} has been referenced but does not exist
-, replaced by a fixed one
-
- <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0
-800.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecrm0900.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\ectt0900.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ecrm0600.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts
-/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\simone\AppData\Local\MiKTe
-X\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\simone\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\simone\AppDa
-ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\simon
-e\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\User
-s\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <
-C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm109
-5.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecbx1200.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecrm1200.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm1728.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfou
-r/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/p
-k/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
-Output written on Thesis.pdf (25 pages, 1847929 bytes).
+ <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
+m0800.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\ecrm0900.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\ectt0900.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\ecrm0600.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/l
+jfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\simone\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\simone\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\simone\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\simone\App
+Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\sim
+one\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Us
+ers\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
+ <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
+095.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecbx1200.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecrm1200.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecrm1728.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
+Output written on Thesis.pdf (28 pages, 1872734 bytes).
 PDF statistics:
- 1055 PDF objects out of 1200 (max. 8388607)
- 142 named destinations out of 1000 (max. 500000)
+ 1164 PDF objects out of 1200 (max. 8388607)
+ 211 named destinations out of 1000 (max. 500000)
  154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

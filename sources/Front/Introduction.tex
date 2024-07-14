@@ -39,7 +39,7 @@ subject of this thesis is based.
 \subsection*{Architecture type}
 LEGv8 follows the Von Neumann architecture paradigm and thus contemplates the existence of a single memory containing both the instructions and the program data. It is a 64-bit architecture and is specifically designed for pipelined execution.
 \subsection*{Registers}
-LEGv8 defines 32 64-bit \emph{X} registers for storing integer values and 32 64-bit \emph{D} registers for storing double precision floating point values. There are also 32 32-bit \emph{S} registers dedicated to single precision floating point values, albeit being purely logical and simply occupying the lower 32 bits of the \emph{D} registers. Unlike ARMv8, the presence of 32-bit \emph{W} integer registers is not contemplated.
+LEGv8 defines 32 64-bit \verb|X| registers for storing integer values and 32 64-bit \verb|D| registers for storing double precision floating point values. There are also 32 32-bit \verb|S| registers dedicated to single precision floating point values, albeit being purely logical and simply occupying the lower 32 bits of the \verb|D| registers. Unlike ARMv8, the presence of 32-bit \verb|W| integer registers is not contemplated.
 \newline
 Registers are also used following a certain convention that is defined by the ISA but not enforced by the processor, and some can be addressed using alternative names for readibility purposes. There are analogous conventions for floating point registers too.
 \begin{figure}[H]
@@ -47,7 +47,6 @@ Registers are also used following a certain convention that is defined by the IS
 	\includegraphics[width=.8\textwidth]{img/registers_conventions.png}
 	\caption{Integer registers usage convention}
 \end{figure}
-\newline
 
 In addition to the normal registers directly accessible by the programmer, more exist to store the program counter (i.e. the address of the current instruction to be executed) and various flags to keep track of overflows or carry bits in arithmetic operations and comparisons.
 \subsection*{Memory}
@@ -71,14 +70,14 @@ Of course not all instructions make use of all the pipeline stages and this is t
 	\caption{The 5 pipeline stages}
 \end{figure}
 \subsection*{Instructions}
-LEGv8 can be considered a subset of ARMv8, but with a few caveats. Many higher level instructions have been omitted altogether in order to keep the ISA as minimal as possible, and many of the ones that have been kept have been revisited to make them clearer in their scope. For example, in ARMv8 the \emph{ADD} instruction can be used with both 32 and 64 bit integer registers, and both with register-based and immediate-based (i.e. defined directly in the program code) values. This of course allows the ARMv8 programmer to remember a single mnemonic and use it in all sorts of operations, but it obscures some important underlying design differences that might be valuable to computer architecture students. In LEGv8 instead, it has been decided to split the \emph{ADD} instruction into \emph{ADD} and \emph{ADDI} or register and immediate values usage respectively. Similarly, in ARMv8 the \emph{FADD} instruction is capable of performing additions both in the case of single and double precision registers, whereas in LEGv8 the instruction has been split into \emph{FADDS} and \emph{FADDD} for performing the operation only on single precision or double precision registers respectively.
+LEGv8 can be considered a subset of ARMv8, but with a few caveats. Many higher level instructions have been omitted altogether in order to keep the ISA as minimal as possible, and many of the ones that have been kept have been revisited to make them clearer in their scope. For example, in ARMv8 the \verb|ADD| instruction can be used with both 32 and 64 bit integer registers, and both with register-based and immediate-based (i.e. defined directly in the program code) values. This of course allows the ARMv8 programmer to remember a single mnemonic and use it in all sorts of operations, but it obscures some important underlying design differences that might be valuable to computer architecture students. In LEGv8 instead, it has been decided to split the \verb|ADD| instruction into \verb|ADD| and \verb|ADDI| or register and immediate values usage respectively. Similarly, in ARMv8 the \verb|FADD| instruction is capable of performing additions both in the case of single and double precision registers, whereas in LEGv8 the instruction has been split into \verb|FADDS| and \verb|FADDD| for performing the operation only on single precision or double precision registers respectively.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.8\textwidth]{img/legv8_instruction_set.png}
 	\caption{The complete LEGv8 ISA}
 \end{figure}
 All the instructions are encoded with the same length of 32 bits in order to fetch and decode them more efficiently. They are also grouped into 5 instruction formats to give a more homogeneous encoding to operations performing similar steps and increase their decoding speed.
-The \emph{R}-type instructions perform operations solely on registers, the \emph{I}-type instructions make use of immediate values, the \emph{D}-type instructions access the memory, the \emph{B}-type and \emph{CB} perform unconditional and conditional branching respectively, and the \emph{IW}-type instructions to perform MOV instructions with wider immediate values.
+The \verb|R|-type instructions perform operations solely on registers, the \verb|I|-type instructions make use of immediate values, the \verb|D|-type instructions access the memory, the \verb|B|-type and \verb|CB| perform unconditional and conditional branching respectively, and the \verb|IW|-type instructions to perform MOV instructions with wider immediate values.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.8\textwidth]{img/instruction_types.png}

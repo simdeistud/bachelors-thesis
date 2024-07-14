@@ -76,7 +76,7 @@ It is clear from this brief survey that the LEGv8 simulators space lacks any des
 
 \section*{ARM's LEGv8 simulator \footnote{\url{https://github.com/arm-university/Graphical-Micro-Architecture-Simulator}}}
 
-This is the simulator officially provided by ARM Education and is the subject of this thesis' work. It is written in Java 8 and uses Google's GWT framework to transpile the code into native JavaScript to allow the simulator to be executed inside a web browser as a normal web application. It provides a comprehensive user interface displaying an interactive text editor (provided by AceGWT) to input LEGv8 code and to display errors, and a visualization of the state of the \emph{X} registers.
+This is the simulator officially provided by ARM Education and is the subject of this thesis' work. It is written in Java 8 and uses Google's GWT framework to transpile the code into native JavaScript to allow the simulator to be executed inside a web browser as a normal web application. It provides a comprehensive user interface displaying an interactive text editor (provided by AceGWT) to input LEGv8 code and to display errors, and a visualization of the state of the \verb|X| registers.
 When selecting the single-cycle execution mode, a visualizaton of the logical scheme of the LEGv8 ISA is presented and for each step of the execution various components change color to indicate the current stage of the pipeline. For the pipelined execution mode, the visualization is slightly modified to include pipeline-specific information such as pipeline registers, the hazard detection unit and the forwarding unit. An additional textual representation of the pipeline is provided to see the stage occupied by each instruction at any given moment.
 
 \begin{figure}[H]
@@ -88,7 +88,7 @@ When selecting the single-cycle execution mode, a visualizaton of the logical sc
 	\subfigure[Pipeline]{
 		\includegraphics[width=.85\textwidth]{img/old_pipeline.jpeg}
 	}
-	\caption{The simulator's main page with the two different execution modes}
+	\caption{The simulator's main page with the two different execution modes.}
 \end{figure}
 
 \subsection*{Features}
@@ -96,13 +96,13 @@ When selecting the single-cycle execution mode, a visualizaton of the logical sc
 This simulator presents many favorable characteristics:
 
 \begin{itemize}[label=\textendash]
-	\item Written in Java (platform agnostic, extensible)
-	\item Compiled as a web application (platform agnostic and easily deployable)
-	\item Embedded text editor to input code and display errors to
-	\item Clear and rich visualization of the \emph{X} and flag registers and the datapath of the CPU thanks to the web-based interface
-	\item Almost all of the integer arithmetic is already implemented
-	\item All types of integer \emph{LOAD} and \emph{STORE} instructions are already implemented, including \emph{STXUR} and \emph{LDXUR}
-	\item Officially distributed by ARM Education (biggest support and discoverability)
+	\item Written in Java (platform agnostic, extensible).
+	\item Compiled as a web application (platform agnostic and easily deployable).
+	\item Embedded text editor to input code and display errors to.
+	\item Clear and rich visualization of the \verb|X| and flag registers and the datapath of the CPU thanks to the web-based interface.
+	\item Almost all of the integer arithmetic is already implemented.
+	\item All types of integer \verb|LOAD| and \verb|STORE| instructions are already implemented, including \verb|STXUR| and \verb|LDXUR|.
+	\item Officially distributed by ARM Education (biggest support and discoverability).
 \end{itemize}
 
 
@@ -111,12 +111,12 @@ This simulator presents many favorable characteristics:
 Unfortunately many problems present themselves when trying to run or develop the simulator:
 
 \begin{itemize}[label=\textendash]
-	\item Absence of any documentation on how to build the project and design choices behind it
-	\item Executable version distributed in automatically-generated web page form
-	\item Pipeline execution is incomplete
-	\item The mechanism for calling subroutines is broken and results in infinite loops, making it impossible to delegate code to other functions
-	\item The mechanism for performing comparisons is broken and results in the wrong branches being taken, making it impossible to perform conditional operations and loops
-	\item The project is heavily dependent on the Eclipse Java IDE with an old GWT plugin to perform the build process
+	\item Absence of any documentation on how to build the project and design choices behind it.
+	\item Executable version distributed in automatically-generated web page form.
+	\item Pipeline execution is incomplete.
+	\item The mechanism for calling subroutines is broken and results in infinite loops, making it impossible to delegate code to other functions.
+	\item The mechanism for performing comparisons is broken and results in the wrong branches being taken, making it impossible to perform conditional operations and loops.
+	\item The project is heavily dependent on the Eclipse Java IDE with an old GWT plugin to perform the build process.
 	\item The project depends on the outdated and barely supported GWT library to deploy the simulator as a web application. This restricts the developers from using newer Java features or better web frameworks.
 \end{itemize}
 
@@ -151,3 +151,5 @@ For these reasons, this simulator was chosen as the subject of my thesis:
 	\item Allow the Digital Systems Architecture course at UniTS and other courses in general to have a working LEGv8 simulator for more effective teaching
 	\item Opportunity to work on a real Java code base
 \end{itemize}
+
+\subsection*{The simulator's inner workings}

@@ -4,7 +4,7 @@
 
 \subsection*{Getting the project to a working state}
 
-\subparagraph*{The flag setting bug}
+\paragraph*{The flag setting bug}
 
 In LEGv8, CMP and CMPI are pseudoinstructions, meaning that under the hood they actually make use of the SUBS and SUBIS instructions respectively to set the compare flags. The fact that the former instructions failed, pointed at a problem in the latter ones, which was proven to be correct. The simulator first implements the function responsible for setting the flags of the addition operations and when setting the flags for the subtraction operations it simply calls the same function with the same arguments.
 \begin{lstlisting}[caption={The adddition flag-setting code}]
@@ -27,7 +27,7 @@ As we can see, this presents a problem since subtraction and addition set their 
 	}
 \end{lstlisting}
 
-\subparagraph*{The branch return bug}
+\paragraph*{The branch return bug}
 
 For this bug, inspecting the LR register showed that the BL instruction was not writing the register with the address of the current instruction, but with the subroutine's one instead. This created an infinite loop since, when the subroutine returned to the LR, the program would jump back to the beginning of the subroutine all over again.
 \begin{lstlisting}[caption={The buggy address writing}]
@@ -46,7 +46,7 @@ As we can see, the instructionIndex is updated too soon and thus the LR register
 	}
 \end{lstlisting}
 
-\subparagraph*{The datapath visualization bug}
+\paragraph*{The datapath visualization bug}
 An issue that was raised on GitHub \footnote{\url{https://github.com/arm-university/Graphical-Micro-Architecture-Simulator/issues/8}} complained about erroneous values of the MemWrite and MemRead signals from the control unit. This was a problem in the configuration.
 \begin{lstlisting}[caption={Buggy SingleCycleVis.java}]
 	...
@@ -74,3 +74,93 @@ An issue that was raised on GitHub \footnote{\url{https://github.com/arm-univers
 \end{lstlisting}
 
 \subsection*{Adding new features}
+
+\paragraph{Refactoring the memory}
+
+The \verb|ByteBuffer.java| and \verb|Memory.java| classes have mostly been left untouched, although their methods and variables presented some Java-centric names and have thus been replaced with more apt LEGv8 names such as \verb|getDoubleWord| instead of \verb|getLong|. The base address of the stack, defined in the textbook as \verb|0x7ffffffffc|,  was not quadword-aligned, leading to a design contradiction. I chose to change it to the  compatible address \verb|0x8000000000|.
+
+\paragraph{Completing the integer arithmetic}
+
+The integer-related instructions missing from the simulator were: \verb|MUL|, \verb|SMULH|, \verb|UMULH|, \verb|SDIV|, and \verb|UDIV|. In order to implement these new instructions a few changes to the code had to be made. First of all they had been added to \verb|Mnemonic.java|.
+\begin{lstlisting}[caption={}]
+	...
+	...
+\end{lstlisting}
+\begin{lstlisting}[caption={Added mnemonics}]
+	...
+	MUL("MUL", "mul", TokenType.XMNEMONIC_RRR, "10011011000", "0010"),
+	SMULH("SMULH", "smulh", TokenType.XMNEMONIC_RRR, "10011011010", "0010"),
+	UMULH("UMULH", "umulh", TokenType.XMNEMONIC_RRR, "10011011110", "0010"),
+	SDIV("SDIV", "sdiv", TokenType.XMNEMONIC_RRR, "10011010110", "0010")
+	UDIV("UDIV", "udiv", TokenType.XMNEMONIC_RRR, "10011010110", "0010"),
+	...
+\end{lstlisting}
+Then to Decoder.java
+\begin{lstlisting}[caption={Added instructions to the decoder}]
+	...
+	case MUL :
+	return new Instruction(mnemonic, decodeRRRArgs(args), lineNumber, ControlUnitConfiguration.RRR);
+	case UMULH :
+	return new Instruction(mnemonic, decodeRRRArgs(args), lineNumber, ControlUnitConfiguration.RRR);
+	case SMULH :
+	return new Instruction(mnemonic, decodeRRRArgs(args), lineNumber, ControlUnitConfiguration.RRR);
+	case UDIV :
+	return new Instruction(mnemonic, decodeRRRArgs(args), lineNumber, ControlUnitConfiguration.RRR);
+	case SDIV :
+	return new Instruction(mnemonic, decodeRRRArgs(args), lineNumber, ControlUnitConfiguration.RRR);
+	...
+\end{lstlisting}
+Then they had to be added to \verb|TokenType.java| to use with the parser
+\begin{lstlisting}[caption={Addition to the parser}]
+	...
+		MNEMONIC_RRR("ADDS?[ \t]+|SUBS?[ \t]+|ANDS?[ \t]+|MUL[ \t]+|SMULH[ \t]+|UMULH[ \t]+|SDIV[ \t]+|UDIV[ \t]+|ORR[ \t]+|EOR[ \t]+|adds?[ \t]+|fmul[sd]?[ \t]+|fdiv[sd]?[ \t]+|subs?[ \t]+|ands?[ \t]+|mul[ \t]+|smulh[ \t]+|umulh[ \t]+|sdiv[ \t]+|udiv[ \t]+|orr[ \t]+|eor[ \t]+", 15, "MNEMONIC"),
+	...
+\end{lstlisting}
+And finally they had to be implemented inside \verb|CPU.java| to execute the operations
+\begin{lstlisting}[caption={}]
+	...
+	private void MUL(int destReg, int op1Reg, int op2Reg) {											
+			XRegisterFile[destReg].writeDoubleWord(XRegisterFile[op1Reg].readDoubleWord() * XRegisterFile[op2Reg].readDoubleWord());
+		}
+	}
+	private void SDIV(int destReg, int op1Reg, int op2Reg) {
+			XRegisterFile[destReg].writeDoubleWord(XRegisterFile[op1Reg].readDoubleWord() / XRegisterFile[op2Reg].readDoubleWord());
+	}
+	
+	private void UDIV(int destReg, int op1Reg, int op2Reg) {
+			BigInteger dividend = BigInteger.valueOf(XRegisterFile[op1Reg].readDoubleWord()).and(UNSIGNED_LONG_MASK);
+			BigInteger divisor = BigInteger.valueOf(XRegisterFile[op2Reg].readDoubleWord()).and(UNSIGNED_LONG_MASK);
+			BigInteger quotient = dividend.divide(divisor);
+			XRegisterFile[destReg].writeDoubleWord(quotient.longValue());
+	}
+	
+	private void SMULH(int destReg, int op1Reg, int op2Reg) {
+			BigInteger fullResult = BigInteger.valueOf(XRegisterFile[op1Reg].readDoubleWord()).multiply(BigInteger.valueOf(XRegisterFile[op2Reg].readDoubleWord()));
+			BigInteger shiftedResult = fullResult.bitLength() > 64 ? fullResult.shiftRight(64) : BigInteger.valueOf(0);
+			XRegisterFile[destReg].writeDoubleWord(shiftedResult.longValue());;
+			
+	}
+	
+	private void UMULH(int destReg, int op1Reg, int op2Reg) {
+			BigInteger fullResult = BigInteger.valueOf(XRegisterFile[op1Reg].readDoubleWord()).and(UNSIGNED_LONG_MASK).multiply(BigInteger.valueOf(XRegisterFile[op2Reg].readDoubleWord()).and(UNSIGNED_LONG_MASK));
+			BigInteger shiftedResult = fullResult.bitLength() > 64 ? fullResult.shiftRight(64) : BigInteger.valueOf(0);
+			XRegisterFile[destReg].writeDoubleWord(shiftedResult.longValue());;
+	}
+	...
+\end{lstlisting}
+Of particular interest are the \verb|UDIV|, \verb|UMULH| and \verb|SMULH| instructions as they make use of the \verb|BigInteger| class.
+\begin{itemize}[label=\textendash]
+\item Java does not support unsigned integers. This means that \verb|UDIV| needs to artificially represent them with 65 bit signed numbers through the use of a bit mask. This way it's able to perform the division and return a native 64 bit signed integer.
+\item The \verb|*MULH| instructions perform a 128-bit multiplication between two 64-bit integers and retain the higher 64 bits. To perform such a calculation Java needs to go beyond its primitive types and make use of \verb|BigInteger|.
+\end{itemize}
+Of course this could have been done in more primitive ways through the use of arrays, but GWT supported the \verb|BigInteger| type and allowed to solve the problem quickly.
+
+\paragraph*{Visualizing the stack}
+
+After finishing implementing the integer arithmetic it was time to make the stack visible inside the web interface. This was done by reutilizing the same structure that allowed for the visualization of the \verb|X| registers and slightly tweaking it for memory usage by .
+
+\paragraph*{Implementing floating point arithmetic}
+\subparagraph*{Adding floating point registers}
+\subparagraph*{Adding floating point operations}
+\subparagraph*{Visualizing the new registers}
+\subparagraph*{Visualizing the data path}
