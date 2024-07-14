@@ -298,5 +298,23 @@ Having added the new registers to \verb|CPU.java|, it was now possible to implem
 	\end{lstlisting}
 
 \subparagraph*{Refactoring the parser}
+
+LEGv8 does not allow instructions to operate on different types of registers. For this reason code like \verb|ADD X0, S4, D20| or \verb|FADDS X0, X1, X2| is not valid. This in turn means that the assembler (in this case, the parser) needs to be made aware that certain instructions work only with certain types of registers. 
+\newline
+The parser works by implementing a finite state machine through the use of enumerators. It takes each line and scans it step by step to check if its syntax is correct. The integer parser has the following diagram.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/parser_diagram.png}
+	\caption{The old integer-instructions-only parser.}
+\end{figure}
+
+The structure of the parser allows it to be extended quite easily. This was done by recategorizing all the mnemonics into \verb|X|, \verb|S|, and \verb|D| type mnemonics. For example, what once was a \verb|MNEMONIC_RRR| (i.e. an instruction that operates on 3 registers), now is split into \verb|XMNEMONIC_RRR|,  \verb|SMNEMONIC_RRR|, and  \verb|DMNEMONIC_RRR|, each of them being able to oeprate only on the compatible registers. By doing this, the parser now recognizes invalid hybrid instructions and refuses to run the program.
+
 \subparagraph*{Visualizing the new registers}
+
+Adding the visualization for the new registers required similar work as what was done with the displaying of the stack. A new \verb|FloatRegisterPanel.java| class was created following the same structure as the integer registers'. The only real change besides the registers' labels was to correctly display the decimal representation of the floating point number stored inside the register.
+
 \subparagraph*{Visualizing the data path}
+
+The only thing left was to refactor the \verb|SingleCycleVis.java| class to make it recognize the new types of mnemonics and thus provide a correct visualization for the kinds of operations they were performing.

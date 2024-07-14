@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  14 JUL 2024 23:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  14 JUL 2024 23:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1368,7 +1368,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[18]) (Main/Chapter4.tex
+[18]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1379,37 +1379,67 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [19]
+<img/parser_diagram.png, id=552, 2155.05125pt x 1578.89874pt>
+File: img/parser_diagram.png Graphic file (type png)
+<use img/parser_diagram.png>
+Package pdftex.def Info: img/parser_diagram.png  used on input line 308.
+(pdftex.def)             Requested size: 360.0pt x 263.73538pt.
+) (Main/Chapter4.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[20 <./img/parser_diagram.png>]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[21]
 Chapter 4.
 ) (Back/Conclusions.tex
 
-[20
-
-])
-
-[21
-
-] (Thesis.bbl) (Back/Acknowledgements.tex
-
 [22
-
 
 ])
 
 [23
+
+] (Thesis.bbl) (Back/Acknowledgements.tex
+
+[24
+
+
+])
+
+[25
 
 ] (Thesis.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 5DDD3512FF984419FD5AEE7658A5A2B7;1178.
  ) 
 Here is how much of TeX's memory you used:
- 25660 strings out of 473904
- 472059 string characters out of 5726128
+ 25670 strings out of 473904
+ 472285 string characters out of 5726128
  2245908 words of memory out of 5000000
- 47720 multiletter control sequences out of 15000+600000
+ 47727 multiletter control sequences out of 15000+600000
  579683 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,13n,101p,1525b,2066s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1432,9 +1462,9 @@ c/dpi600\ecrm1200.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
 appen/ec/dpi600\ecrm1728.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts/pk/ljf
 our/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\simone\AppData\Local\MiKTeX\fonts
 /pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
-Output written on Thesis.pdf (32 pages, 1933429 bytes).
+Output written on Thesis.pdf (34 pages, 2197734 bytes).
 PDF statistics:
- 1325 PDF objects out of 1440 (max. 8388607)
- 325 named destinations out of 1000 (max. 500000)
- 164 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1338 PDF objects out of 1440 (max. 8388607)
+ 328 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 
