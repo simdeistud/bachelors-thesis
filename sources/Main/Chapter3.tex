@@ -82,10 +82,6 @@ The \verb|ByteBuffer.java| and \verb|Memory.java| classes have mostly been left 
 \paragraph{Completing the integer arithmetic}
 
 The integer-related instructions missing from the simulator were: \verb|MUL|, \verb|SMULH|, \verb|UMULH|, \verb|SDIV|, and \verb|UDIV|. In order to implement these new instructions a few changes to the code had to be made. First of all they had been added to \verb|Mnemonic.java|.
-\begin{lstlisting}[caption={}]
-	...
-	...
-\end{lstlisting}
 \begin{lstlisting}[caption={Added mnemonics}]
 	...
 	MUL("MUL", "mul", TokenType.XMNEMONIC_RRR, "10011011000", "0010"),
