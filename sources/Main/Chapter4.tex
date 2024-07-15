@@ -1,3 +1,34 @@
-\chapter{Current problems and further development}
+\chapter{Current problems and further development}\label{chap:chap4}
 
 \epigraph{``Perfecting oneself is as much unlearning as it is learning.''}{\textit{Edsger W. Dijkstra}}
+
+
+
+\subsection*{Current shortcomings and proposals}
+
+Here is a list of things that can be fixed or added without fundamentally changing how the project is structured:
+
+\begin{itemize}
+	\item The pipelined execution does not work properly, especially with the newly introduced floating point operations. This is because the code modeling the CPU is not logically divided into the pipeline stages and makes it difficult to run and synchronize multiple instructions at a time. This can be done by reorganizing the project's code to make it follow closer to the 5 stages of the LEGv8 pipeline.
+	\item Even though the project is written in Java, it makes many design decisions that don't make use of the power of object-orientation. It doesn't properly divide the components of the ISA into their own classes, it presents many code repetitions and doesn't use many abstractions, and in general some classes and methods are disproportionally large. The code base should be refactored using the latest design principles of Java's object-oriented programming and make use of the additions that GWT has implemented from v2.7 onwards.
+	\item The project lacks any code testing capabilities. Tests should be written using Maven's convention in order to make sure the simulator works correctly and to avoid breaking changes in the future.
+	\item The project currently has to include a custom-compiled version of AceGWT as a local repository. This can be fixed by either:
+	\begin{itemize}[label=$\rightarrow$]
+		\item Uploading this custom version to Maven's central repository.
+		\item Configuring Maven and using some plugins in order to use AceGWT's GitHub repository as a Maven repository and automatically apply the patches and build the custom version of the library on the fly.
+	\end{itemize}
+	\item Make the web UI more responsive and change its layout to work better on devices with smaller screens. In general, improve the look and feel of the application.
+	\item Currently, code can only be executed by manually stepping over the instructions. A way of automatically running all the code until completion or stepping automatically with a user-defined clock speed could be helpful when trying to test results faster.
+	\item The project lacks documentation. More code comments should be written and a more thorough description of the simulator's design and functionalities should be provided both to users and to developers. This thesis could be a start.
+\end{itemize}
+
+\subsection*{Structural problems}
+
+These are the problems I found with the simulator that, should they be fixed, would require a lot of work and would change the code base in a fundamental way.
+
+\begin{itemize}
+ 	\item The textbook doesn't really specify the logical implementation of the ISA for anything other than a few integer instructions. This means that, for example, things like ALUop codes are not defined for floating point operations. In order to provide a complete simulation of the LEGv8 ISA, some arbitrary design decisions should be made to extend Patterson's and Hannessy's work.
+ 	\item Similarly, the texbook doesn't talk about pipelined execution in the context of floating point operations. This means that implementing it would require the programmer to make its own informed design decisions.
+ 	\item Java does not allow data structured to contain more than $2^{32}$ elements. This means that things such as the main memory cannot be properly simulated with a single data structure, but a tiered approach should be taken. Of course this is a very minor problem, since LEGv8 is purely for educational usage and realistically no program using more than a moderate amount of memory and instructions will be written.
+ 	\item If the application needs to be deployed and ran in the browser as a web application, then GWT is in dire need of replacement. It's a very old library that has stopped being officially supported by Google long ago \footnote{\url{https://en.wikipedia.org/wiki/Google_Web_Toolkit}} and cannot keep up with the new features of both the Java language and the web. A new framework for creating self-contained web applications with Java should be identified and the project rewritten to make use of it. If no such framework exists, rewriting the simulator into another language should be taken into consideration. Alternatively, thanks to the portability of Java, a native UI could be written and the simulator distributed through a \verb|.jar| executable.
+\end{itemize}

@@ -1,4 +1,4 @@
-\chapter{Bug fixing and new features}\label{chap:lipsum}
+\chapter{Bug fixing and new features}\label{chap:chap3}
 
 \epigraph{``If debugging is the process of removing software bugs, then programming must be the process of putting them in.''}{\textit{Edsger W. Dijkstra}}
 
@@ -150,6 +150,9 @@ Of particular interest are the \verb|UDIV|, \verb|UMULH| and \verb|SMULH| instru
 \item The \verb|*MULH| instructions perform a 128-bit multiplication between two 64-bit integers and retain the higher 64 bits. To perform such a calculation Java needs to go beyond its primitive types and make use of \verb|BigInteger|.
 \end{itemize}
 Of course this could have been done in more primitive ways through the use of arrays, but GWT supported the \verb|BigInteger| type and allowed to solve the problem quickly.
+
+\subparagraph*{Finishing touches}
+The last integer (pseudo)instruction to be implemented was \verb|LDA|. Its purpose is to copy the address pointed by a label into a register. Since the instruction follows the same format as \verb|CBZ| and \verb|CBNZ| (i.e. its arguments are an \verb|X| register and a label), it was added as an \verb|RL|-type instruction and by reading the address of the label from the branch table \footnote{A table populated by the CPU both statically and dynamically that associates each label to its address}. I should note that the LEGv8 documentation seems to be inconsistent in its description of this pseudo-instruction. In fact, from how it is talked about in the textbook, it seems to do what I have described above, but when looking at the LEGv8 reference guide it's described as \verb|R[Rd] = R[Rn] + DTAddress|, implying that it actually operates by taking the value of a register \verb|Rn|, adding it to the address \verb|DTAddress| specified by the label, and then writing the result into the \verb|Rd| destination address. Furthermore, this instruction is present in just a couple of LEGv8 examples and never explained in detail, so I decided to implement it following the examples in the book instead of its formal specification.
 
 \paragraph*{Visualizing the stack}
 
@@ -314,3 +317,25 @@ Adding the visualization for the new registers required similar work as what was
 \subparagraph*{Visualizing the data path}
 
 The only thing left was to refactor the \verb|SingleCycleVis.java| class to make it recognize the new types of mnemonics and thus provide a correct visualization for the kinds of operations they were performing.
+
+\subparagraph*{Updating the pipelined view}
+
+Even though the pipelined execution wasn't a subject of my work, I decided to at least change the visualization to include the new registers and stack view and to make it more organized inside the web page.
+
+\subsection*{The final look}
+
+\begin{figure}[H]
+	\centering	
+	\subfigure[New single cycle]{
+		\includegraphics[width=1\textwidth]{img/new_single_cycle.jpeg}
+	}
+	\caption{The updated single cycle UI}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfigure[New pipeline]{
+		\includegraphics[width=1\textwidth]{img/new_pipeline.jpeg}
+	}
+	\caption{The updated pipeline UI}
+\end{figure}
