@@ -4,7 +4,7 @@
 \contentsline {chapter}{\numberline {1}The LEGv8 simulators landscape}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Building and modernizing the code base}{9}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Bug fixing and new features}{12}{chapter.3}%
-\contentsline {paragraph}{Refactoring the memory}{14}{section*.48}%
-\contentsline {paragraph}{Completing the integer arithmetic}{14}{section*.49}%
+\contentsline {paragraph}{Refactoring the memory}{14}{section*.34}%
+\contentsline {paragraph}{Completing the integer arithmetic}{14}{section*.35}%
 \contentsline {chapter}{\numberline {4}Current problems and further development}{26}{chapter.4}%
-\contentsline {chapter}{Conclusions}{29}{chapter*.62}%
+\contentsline {chapter}{Conclusions}{29}{chapter*.48}%

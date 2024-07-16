@@ -145,7 +145,7 @@ And finally they had to be implemented inside \verb|CPU.java| to execute the ope
 	...
 \end{lstlisting}
 Of particular interest are the \verb|UDIV|, \verb|UMULH| and \verb|SMULH| instructions as they make use of the \verb|BigInteger| class.
-\begin{itemize}[label=\textendash]
+\begin{itemize}
 \item Java does not support unsigned integers. This means that \verb|UDIV| needs to artificially represent them with 65 bit signed numbers through the use of a bit mask. This way it's able to perform the division and return a native 64 bit signed integer.
 \item The \verb|*MULH| instructions perform a 128-bit multiplication between two 64-bit integers and retain the higher 64 bits. To perform such a calculation Java needs to go beyond its primitive types and make use of \verb|BigInteger|.
 \end{itemize}

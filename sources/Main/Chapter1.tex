@@ -95,7 +95,7 @@ When selecting the single-cycle execution mode, a visualizaton of the logical sc
 
 This simulator presents many favorable characteristics:
 
-\begin{itemize}[label=\textendash]
+\begin{itemize}
 	\item Written in Java (platform agnostic, extensible).
 	\item Compiled as a web application (platform agnostic and easily deployable).
 	\item Embedded text editor to input code and display errors to.
@@ -110,7 +110,7 @@ This simulator presents many favorable characteristics:
 
 Unfortunately many problems present themselves when trying to run or develop the simulator:
 
-\begin{itemize}[label=\textendash]
+\begin{itemize}
 	\item Absence of any documentation on how to build the project and design choices behind it.
 	\item Executable version distributed in automatically-generated web page form.
 	\item Pipeline execution is incomplete.
@@ -145,14 +145,16 @@ I present below a demonstration of the bugs regarding the subroutine calls and n
 
 For these reasons, this simulator was chosen as the subject of my thesis:
 
-\begin{itemize}[label=\textendash]
+\begin{itemize}
 	\item Maximize the impact of my work by fixing and improving the most popular simulator available.
 	\item Provide the first complete implementation of the LEGv8 instruction set.
 	\item Allow the Digital Systems Architecture course at UniTS and other courses in general to have a working LEGv8 simulator for more effective teaching.
 	\item Opportunity to work on a real Java code base.
 \end{itemize}
 
-\subsection*{The simulator's inner workings}
+\newpage
+
+\subsection*{Overview of the code base}
 
 \begin{wrapfigure}{R}{0.3\textwidth}
 	\centering
@@ -164,61 +166,36 @@ For these reasons, this simulator was chosen as the subject of my thesis:
 
 This is the main package of the simulator, containing all of the source code. Inside this package are present the classes responsible for the main web application. Exception classes have been omitted as they are self descriptive.
 
-\subparagraph*{WebApp.java}
-
-This class contains all the code to tie together the elements of the web UI. It creates all the visual componentes and inserts them into the page.
-
-\subparagraph*{SingleCycleVis.java and PipelineVis.java}
-
-These two classes generate the logical visualization of the processor during the single cycle and pipelined execution respectively. This is done using \verb|DatapathGraphics.java| which generates a logical diagram in HTML5.
-
-\subparagraph*{RegisterPanel.java and CPSRPanel.java}
-
-These two classes model the registers, program counter and flag panels respectively.
-
-\subparagraph*{Error.java}
-
-Models the errors displayed by the text editor.
+\begin{itemize}
+	\item \verb|WebApp.java| : This class contains all the code to tie together the elements of the web UI. It creates all the visual componentes and inserts them into the page.
+	\item \verb|SingleCycleVis.java| and \verb|PipelineVis.java|: \newline These two classes generate the logical visualization of the processor during the single cycle and pipelined execution respectively. This is done using \verb|DatapathGraphics.java| which generates a logical diagram in HTML5.
+	\item \verb|RegisterPanel.java| and \verb|CPSRPanel.java|: \newline These two classes model the registers, program counter and flag panels respectively.
+	\item \verb|Error.java|: \newline Models the errors displayed by the text editor.
+\end{itemize}
 
 \paragraph*{The cpu package}
 
 This is the package inside the simulator responsible for modeling the CPU and its functionalities.
 
-\subparagraph*{CPU.java and CPUSnapshot.java}
+\begin{itemize}
+\item \verb|CPU.java| and \verb|CPUSnapshot.java|: \newline The \verb|CPU.java| class is reposnbile for fetching, decoding, and executing instructions and accessing memory and writing back values. It implements all of the logic behind the ALU and sets the control unit. The \verb|CPUSnapshot.java| class provides a deep copy of the \verb|CPU.java| state for use in the pipeline simulation.
+\item \verb|ControlUnitConfiguration.java|: \newline Models the configuration of the control unit.
+\item \verb|The memory package|: \newline This is the package containing the classes modelling the main memory.
+\item \verb|ByteBuffer.java|: \newline A utility class used to model a byte buffer of client specified length, used to store data in big-endian format. As specified by the author, this class has been written because java.nio.ByteBuffer is not supported by GWT.
+\item \verb|Memory.java|: \newline This is the class used to implement the virtual address space of a LEGv8 program. It follows closely Patterson's and Hannessy's specification regarding its logical structure.
+\end{itemize}
 
-The \verb|CPU.java| class is reposnbile for fetching, decoding, and executing instructions and accessing memory and writing back values. It implements all of the logic behind the ALU and sets the control unit. The \verb|CPUSnapshot.java| class provides a deep copy of the \verb|CPU.java| state for use in the pipeline simulation.
-
-\subparagraph*{ControlUnitConfiguration.java} 
-
-Models the configuration of the control unit.
-
-\paragraph*{The memory package}
-
-This is the package containing the classes modelling the main memory.
-
-\subparagraph*{ByteBuffer.java}
-
-A utility class used to model a byte buffer of client specified length, used to store data in big-endian format. As specified by the author, this class has been written because java.nio.ByteBuffer is not supported by GWT.
-
-\subparagraph*{Memory.java} 
-
-This is the class used to implement the virtual address space of a LEGv8 program. It follows closely Patterson's and Hannessy's specification regarding its logical structure.
 
 \paragraph*{The instruction package}
 
 This package deals with the creation and representation of instructions.
 
-\subparagraph*{Instruction.java and PipelineInstruction.java}
+\begin{itemize}
+	\item \verb|Instruction.java| and \verb|PipelineInstruction.java|: \newline These two classes model an instruction. It contains its mnemonic, its arguments, its control signals, and its position inside of the source code. The \verb|PipelineInstruction.java| class is a wrapper for \verb|Instruction.java| and is used in the pipelined execution.
+	\item \verb|Mnemonic.java|: \newline Enumerator class containing the name, OPcode, type, and ALUcode of all of the implemented instructions.
+	\item \verb|Decoder.java|: \newline The class responsible for creating the instructions from the LEGv8 source code.
+\end{itemize}
 
-These two classes model an instruction. It contains its mnemonic, its arguments, its control signals, and its position inside of the source code. The \verb|PipelineInstruction.java| class is a wrapper for \verb|Instruction.java| and is used in the pipelined execution.
-
-\subparagraph*{Mnemonic.java}
-
-Enumerator class containing the name, OPcode, type, and ALUcode of all of the implemented instructions.
-
-\subparagraph*{Decoder.java}
-
-The class responsible for creating the instructions from the LEGv8 source code .
 
 \paragraph*{The lexer and parser packages}
 
@@ -228,10 +205,7 @@ The lexer package is reponsible for manipulating the lines of the LEGv8 source c
 
 This package contains the single cycle and pipelined execution modes.
 
-\subparagraph*{LEGv8\_Simulator.java}
-
-The abstract class responsible for signalling the CPU when to perform the various stage of the LEGv8 execution pipeline.
-
-\subparagraph*{SingleCycleSimulator.java and PipelinedSimulator.java}
-
-These two classes extend \verb|LEGv8_simulator.java| and are responsible for making the proper adaptations to the code to fit the respective execution mode.
+\begin{itemize}
+	\item \verb|LEGv8_Simulator.java|: \newline The abstract class responsible for signalling the CPU when to perform the various stage of the LEGv8 execution pipeline.
+	\item \verb|SingleCycleSimulator.java| and \verb|PipelinedSimulator.java|: \newline These two classes extend \verb|LEGv8_simulator.java| and are responsible for making the proper adaptations to the code to fit the respective execution mode.
+\end{itemize}
