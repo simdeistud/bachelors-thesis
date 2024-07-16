@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  16 JUL 2024 10:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.13)  16 JUL 2024 10:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1557,15 +1557,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-
-
-Package rerunfilecheck Warning: File `Thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Thesis.out':
-(rerunfilecheck)             Before: 02DEE938421FA37F506AA803E9C9748E;1185
-(rerunfilecheck)             After:  185C83B5E4FB95DE282F0F66ED95A8E6;1178.
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 185C83B5E4FB95DE282F0F66ED95A8E6;1178.
  ) 
 Here is how much of TeX's memory you used:
  25794 strings out of 473904
@@ -1598,7 +1591,7 @@ X\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/simone/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/simone/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/sim
 one/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Thesis.pdf (40 pages, 2928102 bytes).
+Output written on Thesis.pdf (40 pages, 2928101 bytes).
 PDF statistics:
  1416 PDF objects out of 1440 (max. 8388607)
  348 named destinations out of 1000 (max. 500000)
