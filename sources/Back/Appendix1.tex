@@ -1,9 +1,54 @@
-\chapter{Sit Amet}
-
-\lipsum[1]
-
-\section{Lorem Ipsum}
-\lipsum[2-4]
-
-\subsection{Dolor sit amet}
-\lipsum[5-7]
+\chapter{Walkthrough of the original project set-up}\label{chap:appA}
+\paragraph{}
+In this appendix, we will lay out a more detailed and visual retelling of the steps needed to build the original codebase using the original build methods. After the original build process was reconstructed, a 50-page document, complete with screenshots, was compiled and published inside a pull request to Arm's repository \cite{web:setuptutorialoriginal}, both in PDF and HTML format. This appendix is an attempt to provide a more compact version of this tutorial, in order to embed it into the thesis without requiring access to external documents.
+\section{Downloading the resources}
+\paragraph{}
+This section will contain all the links to the resources needed before the set-up process can begin. We will focus on downloading as much as possible locally, as these web resources might one day be taken offline. In case that happens, a directory containing all the resources is all that will be needed to reproduce the steps. This tutorial will suppose all the downloads are extracted and put inside a \verb|/sources| folder somewhere in the user's filesystem.
+\subsection{JDK 8}
+\paragraph{}
+As was mentioned in Chapter \ref{chap:chap2}, JDK 8 is our best option, even though, as the changelogs for version GWT 2.7 \cite{gwt2.7web} show, Java 8 syntax was supported only starting from version 2.8. The choice of JDK vendor is not really relevant, as the features emulated by GWT are the elementary ones of the language. In this case, it was chosen to use Amazon's Corretto 8 JDK \cite{web:amazoncorretto8}. It can be either installed on the operating system or downloaded as a compressed folder, with the latter being recommended for this procedure.
+\subsection{Eclipse IDE}
+\paragraph{}
+Due to some library changes to newer versions of Eclipse, the last one compatible with the GWT plug-in used in this thesis's work is currently version 2023-09 \cite{web:eclipse202309}. Download and extract the \verb|Eclipse IDE for Java Developers| version.
+\subsection{GWT plug-in for Eclipse}
+\paragraph{}
+The GWT 4.0.0 plug-in repository can be downloaded and extracted locally from the GWT's plug-ins GitHub Releases page \cite{web:gwtplugin4.0}.
+\subsection{GWT 2.7 and DTD 2.7}
+\paragraph{}
+From the releases page on GWT's website \cite{web:gwtreleases}, we can download and extract the 2.7 version. We must also download the corresponding DTD file \cite{web:gwtdtd2.7}.
+\subsection{AceGWT and DTD 2.8.2}
+\paragraph{}
+Similarly, we can download GWT 2.8.2's DTD \cite{web:gwtdtd2.8.2}. To download AceGWT we can simply go to the Releases page on their GitHub repository \cite{web:acegwtgit} and download the 1.0.0 release.
+\subsection{Arm's LEGv8 simulator}
+\paragraph{}
+The last component we need is the simulator itself. Like AceGWT, it can be downloaded from the Releases section of its GitHub repository \cite{legv8simARMrepogit} and extracted.
+\section{Setting everything up}
+\paragraph{}
+Now everything is in place inside the \verb|/sources| folder to begin the set-up process.
+\subsection{Running Eclipse}
+\paragraph{}
+The Eclipse version that has been downloaded is in executable form, without an installation. We can run it and, when asked, we can choose our preferred folder for the Eclipse workspace.
+\subsection{Pointing to the JDK}
+\paragraph{}
+Now we can tell Eclipse to use the downloaded JDK by navigating to the top taskbar and selecting \verb|Window| $\longrightarrow$ \verb|Preferences| $\longrightarrow$ \verb|Java| $\longrightarrow$\newline \verb|Installed JREs|. Now we can press the \verb|Add...| button and tell Eclipse it's a \verb|Standard VM|. After pressing \verb|Next|, under the \verb|JRE home| label, we select \verb|Directory...| and put the root folder where the JDK we have downloaded in present. Since we have downloaded the JDK as a compressed file, some additional folders might have been created. Start from the outer one and go ony by one until the \verb|JRE system libraries| list gets filled with elements. Now we can \verb|Finish|, select the newly added JDK from the list, and \verb|Apply and Close|.
+\subsection{Installing the GWT plug-in}
+\paragraph{}
+On the top taskbar, go to \verb|Help| $\longrightarrow$ \verb|Install New Software...| and press \verb|Add...|. Under the \verb|Name| label, press \verb|Local...| and point to the extracted repository folder and press \verb|Add...|. Select the \verb|GWT Eclipse Plugin| entry and press \verb|Next >|. Continue with the installation, accept the license, and finish. A pop-up window will appear asking to trust the following content. Press \verb|Select All| and \verb|Trust Selected|. The same window will appear again, but this time asking to trust the artifacts. Do the same procedure, and restart Eclipse.
+\subsection{Importing the simulator}
+\paragraph{}
+We can now add the simulator's sources to the workspace by going to the top taskbar and navigating to \verb|File| $\longrightarrow$\newline \verb|Open Projects from File System...|. Under the \verb|Import source| label, press on \verb|Directory...| and select the folder where the simulator has been extracted to. Two elements will appear on the list, select only the one with \verb|Eclipse project| under the \verb|Import as| column and press \verb|Finish|. If Eclipse asks about marketplace solutions or project natures, decline.
+\subsection{Configuring GWT 2.7}
+\paragraph{}
+The IDE will complain about a lack of resources. First among them, the GWT SDK. Right click on the \verb|LEGv8_Simulator| folder inside the package explorer on the left, and navigate to \verb|Build Path| $\longrightarrow$\newline \verb|Configure Build Path...|. Now go to the \verb|Libraries| tab and press\newline \verb|Add Library...|. Choose GWT as the type of library to be added, and in the next window select \verb|Configure SDKs...|. Press \verb|Add...|, then under the \verb|Installation directory| label press \verb|Browse...| and select the folder where GWT 2.7 was extracted, and press \verb|OK|, \verb|Apply and Close|, and \verb|Finish|. If asked about synchronization, refuse. At this point we will find ourselves back to the Libraries tab, and we can remove the old missing GWT SDK by selecting it and pressing \verb|Remove|.
+\subsection{Adding AceGWT}
+\paragraph{}
+The last step we need to perform is to include the AceGWT library inside the project in the correct location. While still in the \verb|Build Path| window, go to the Projects tab, select the AceGWT entry and remove it. Go to the Sources tab, select the missing \verb|LEGv8_Simulator/test| entry, and remove it as well. Now press \verb|Apply and Close|. Right click on the \verb|/src| folder inside the package explorer and go to \verb|Import...| $\longrightarrow$ \verb|General| $\longrightarrow$ \verb|File System| and press \verb|Next|. Now, under the \verb|From directory| label, press \verb|Browse...| and select the \verb|/src| folder inside of the AceGWT folder inside of where AceGWT's release was extracted. Select the newly added  \verb|src| entry in the left panel of the window, and press \verb|Finish|.
+\subsection{Pointing to the DTDs}
+\paragraph{}
+It is now time to make use of the DTD files we have downloaded for both GWT 2.7 and 2.8.2. First, open with a text editor the\newline \verb|LEGv8_Simulator.gwt.xml| file inside the \verb|/src/com.arm.legv8simulator| package in the package explorer, and substitute the\newline \verb|http://gwtproject.org/doctype/2.7.0/gwt-module.dtd| string inside the \verb|DOCTYPE| definition with the absolute path of the 2.7 DTD in your filesystem. Now open the \verb|AceGWT.gwt.xml| file in the \verb|edu.ycp.cs.dh.acegwt| package. Since this xml file lacks the \verb|DOCTYPE| definition, simply copy and paste the one from the other file in the same location, and substitute the path with the one for the 2.8.2 DTD.
+\subsection{Compiling the project}
+\paragraph{}
+To compile the project we can navigate to the second taskbar from the top, and press the newly added GWT button (the red one bearing the GWT logo) and select \verb|GWT Compile Project...|. Under the \verb|Project| label we press \verb|Browse...|, select the simulator's project, and press \verb|OK|. We can now choose our preferred options for the \verb|Log level| and \verb|Output style|. The entry point for GWT will already be selected, as there is only one. If we press \verb|Compile|, the build process will begin, with the resulting output being put inside the \verb|/war| folder that will have appeared in the package explorer.
+\section{New developments}
+\paragraph{}
+During the writing of the thesis, in the second half of 2024, the GWT community has developed an updated version of the GWT plug-in that fixes the aforementioned compatibility problems with newer versions of Eclipse. This 4.1.0 version is not yet stable and can be found in the same GitHub repository \cite{web:gwtplugingit} in the Releases section. This update of the plug-in includes the latest 2.11 version of GWT but removes the inclusion of version 2.7, making some changes to the naming conventions and other smaller details. For these reasons, even though the set-up process of the original codebase could probably now be performed in an even more expedite manner, some changes would need to be made to the tutorial, and things might break in new, subtle ways. Thus, it was decided to keep this version of the tutorial, since it serves an archival purpose and the new build process using Maven should be used anyway.

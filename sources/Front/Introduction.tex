@@ -1,89 +1,66 @@
 \chapter{Introduction}
 % Fill with what you want to include in the introduction
-\epigraph{``Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better.''}{\textit{Edsger W. Dijkstra}}
 
-\section*{What is an ISA?}
+\epigraph{``The purpose of abstracting is not to be vague, but to create a new semantic level in which one can be absolutely precise.''}{\textit{Edsger W. Dijkstra} -- The Humble Programmer (1972)}
 
-A computer is a device which is capable of acquiring data, performing calculations upon it, and making the results available for use at a later date.
-It is clear from this definition, that when deciding how to design and build a computer one must at least take into consideration the way data is 
-stored and organized (the memory) and the mechanisms through which the computer is able to manipulate said data (the processor).
-Computers are an abstract concept and do not impose a certain technological choice to their physical realization. Nonetheless, the vast majority of computers nowadays
-are built through the assembly of digital components and thus natively speak the language of the binary number system.
-As such, just like when using a mechanical device an operator needs to interact with the physical parts of the system,  operating a computer at this level
-would require the user to manually insert ones and zeros into the right places for it to perform its calculations.
-It is clear that such an operation would require an intimate knowledge of the physical implementation of the computer, and even minimal
-changes to its digital circuitry might jeopardize the correctness of any sequences of bits written for an earlier model.
+\paragraph{}
+The work presented in this thesis concerns the restoration and development of a Java-based LEGv8 simulator.
 
-Early on in the history of computers it was understood that an additional layer of abstraction was needed in order to separate the hardware from the software
-and give more freedom both to the circuit designers and the programmers. This layer of abstraction is called an Instruction Set Architecture,
-which from now on will be called ISA for short. An ISA provides a logical specification of how a computer manages its memory and what the instructions that it's
-capable of performing are. This forms the layer through which all software must interface with in order to interact with the hardware.
+\section*{Some context}
+\paragraph{}
+LEGv8 is an instruction set architecture (which from now on will be referred to as ISA) designed by D.A. Patterson and J.L. Hennessy to serve as a pedagogical tool in their textbook \emph{Computer Organization and Design
+ARM Edition} \cite{patterson2016computer}.
+An ISA is a set of specifications that provides a logical description of a processor-based system. It offers a layer of abstraction that both the hardware and the software need to conform to in order to ensure proper interoperability, meaning that code written for a certain ISA is sure to work on any processor designed following the same specification and vice versa.
+As the title of the book suggests, the text uses the ARM ISA (more specifically, the v8 version) as a real life showcase of the modern approaches to the design of computer systems. However, in some of the chapters, a simpler architecture is needed to better present some of the material, and for this reason the authors identified a simpler and more coherent subset of the ARMv8 ISA which they named LEGv8. 
+Being a fictional ISA created to serve the pedagogical purposes of a single textbook, there are currently no commercially available hardware implementations of the architecture defined by LEGv8, meaning that any code written for it can only be executed by the means of software simulation.
 
-\section*{What is the LEGv8 ISA?}
+\paragraph{}
+Being a relatively popular textbook in undergraduate Computer Architeture courses, an ecosystem of simulators has grown over the years mostly from the enterprise of students and professors, either because of personal interests or because of course requirements. These simulators can be divided in two categories: hardware simulators and software simulators. The former concern themselves with simulating the inner workings of a hypothetical physical implementation of the LEGv8 ISA, while the latter are more interested in simulating the logical execution of the code from the point of view of an external user. Regardless of the type, none of them achieve a complete simulation of the entire LEGv8 ISA for one reason or another, especially when dealing with floating point operations. This might not be a issue when wanting to execute, test or showcase code limited to only a few of the available instructions, as would be the case in a university course with well defined requirements, but problems arise when a student or educator might want to do so using the full spectrum of operations specified by LEGv8. For this reason, a simulator capable of achieving a complete and correct coverage of the entire ISA would be a welcomed addition in the current LEGv8 software landscape.
 
-The ISA focus of this thesis is the LEGv8 ISA, an ARM-inspired architecture created by David A. Patterson and John L. Hennessy designed to serve as a teaching
-tool in their book \emph{Computer Organization and Design (ARM Edition)}. As the title suggests, the book is actually about the ARMv8 ISA, whose first
-iteration was originally released in 1983 by Acorn Computers and which is now developed by Arm Holdings plc. The authors, however, have introduced a few
-changes and simplifications to the ARMv8 ISA to make it friendlier to students and emphasize certain design concepts. As such, this ISA is used
-in the sections of the book dedicated to the design of a model processor and its programming, and it's these sections upon which the LEGv8 simulator
-subject of this thesis is based.
+\paragraph{}
+Among the software simulators available online, one is being developed and published by Arm itself \cite{legv8simARMrepo} and is the subject of this thesis' work. \\
+Arm's LEGv8 simulator is almost entirely written in Java and uses the GWT framework \cite{gwtweb} to distribute the software in the form of a web application. Its codebase is well structured and its use of a platform-agnostic and high level language allows for easy development and extension. Furthermore, the use of GWT gives it the ability to be run on any device running a modern-ish version of any HTML5-compatible web browser. Due to GWT's integration with the Eclipse IDE for Java, this development environment was chosen for the project. These design choices, however, present some criticalities which will be discussed later. \\
+Other issues arise regarding the execution of the simulator, which presents critical bugs that impede any kind of conditional statements, loops, and that don't allow for the execution of user defined functions. It is clear then that a simulator only capable of executing branchless code without support for subroutines is not adequate for the simulation of the vast majority of computer code. \\
+As mentioned in the previous paragraph, none of the publicly available simulators cover the entire LEGv8 ISA, and Arm's one is no exception. This, combined with the presence of the aforementioned simulation-breaking bugs, might discourage its usage and even question its utility. Nonetheless, because of its popularity and the nature of its publisher, it has been deemed the highest impact project when deciding which one to work on for this thesis. 
 
-\section*{Overview of the LEGv8 ISA}
+\section*{Presentation of the thesis' work}
+\paragraph{}
+The work presented in this thesis has tackled different parts both internal and external to the simulator and can be divided into 5 logical phases, not necessarily in chronological order.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.8\textwidth]{img/legv8_logical_scheme.png}
-	\caption{The logical scheme of the LEGv8 architecture}
-\end{figure}
+\paragraph{0. Study of the simulator.}
+The initial part of the work has consisted in analyzing the structure and inner workings of the simulator in order to identify the developers' intentions with its design and the source of its breaking bugs. An important part of this work has been understanding the codebase's undocumented build process and dependencies, documenting them through a comprehensive tutorial, and making it publicly available to allow for future development and collaboration.
 
-\subsection*{Architecture type}
-LEGv8 follows the Von Neumann architecture paradigm and thus contemplates the existence of a single memory containing both the instructions and the program data. It is a 64-bit architecture and is specifically designed for pipelined execution.
-\subsection*{Registers}
-LEGv8 defines 32 64-bit \verb|X| registers for storing integer values and 32 64-bit \verb|D| registers for storing double precision floating point values. There are also 32 32-bit \verb|S| registers dedicated to single precision floating point values, albeit being purely logical and simply occupying the lower 32 bits of the \verb|D| registers. Unlike ARMv8, the presence of 32-bit \verb|W| integer registers is not contemplated.
-\newline
-Registers are also used following a certain convention that is defined by the ISA but not enforced by the processor, and some can be addressed using alternative names for readibility purposes. There are analogous conventions for floating point registers too.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.8\textwidth]{img/registers_conventions.png}
-	\caption{Integer registers usage convention}
-\end{figure}
+\paragraph{}
+An overview of the LEGv8 ISA, a survey of the available simulators, and an overview of Arm's codebase together with its set-up shortcomings and the work done fixing them will be the subject of Chapter \ref{chap:chap1}.
 
-In addition to the normal registers directly accessible by the programmer, more exist to store the program counter (i.e. the address of the current instruction to be executed) and various flags to keep track of overflows or carry bits in arithmetic operations and comparisons.
-\subsection*{Memory}
-The memory contains both the program code and the data. It is logically divided into a \emph{reserved} segment, a \emph{text} segment containing the program code, a \emph{static data} segment containing the constants defined at compile time, and a \emph{dynamic data} and \emph{stack} segments occupying the same location of memory and respectively growing upwards from the \emph{static data} segment and downwards from the stack pointer. This section of the memory is the one containing the data defined at execution time.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.8\textwidth]{img/main_memory_layout.png}
-	\caption{Logical division of the memory}
-\end{figure}
-\subsection*{Control unit}
-The control unit is the component responsible for coordinating the pipeline execution flow and configuring the various components to perform the desired operations in the correct order using the correct parameters.
-\subsection*{ALU}
-The LEGv8 ALU is capable of performing 64-bit integer operations and both single and double precision floating point operations. The operation to perform at any given moment is configured through an ALUop code provided by the control unit.
-\subsection*{Pipeline}
-The LEGv8 pipeline is comprised of 5 stages: \emph{fetch}, \emph{decode}, \emph{execute}, \emph{data access}, and \emph{write back}.
-As the names suggest, the \emph{fetch} stage is responsible for acquiring instructions from the text segment of the memory, the \emph{decode} stage decodes the instructions, reads the registers involved in the operation, and configures the control unit accordingly, the \emph{execute} stage performs the calculation through the ALU, the \emph{data access} stage is responsible for accessing the the memory, and the \emph{write back} stage finally writes the result into the registers.
-Of course not all instructions make use of all the pipeline stages and this is taken into consideration when optimizing the execution flow.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.8\textwidth]{img/5_stage_pipeline.png}
-	\caption{The 5 pipeline stages}
-\end{figure}
-\subsection*{Instructions}
-LEGv8 can be considered a subset of ARMv8, but with a few caveats. Many higher level instructions have been omitted altogether in order to keep the ISA as minimal as possible, and many of the ones that have been kept have been revisited to make them clearer in their scope. For example, in ARMv8 the \verb|ADD| instruction can be used with both 32 and 64 bit integer registers, and both with register-based and immediate-based (i.e. defined directly in the program code) values. This of course allows the ARMv8 programmer to remember a single mnemonic and use it in all sorts of operations, but it obscures some important underlying design differences that might be valuable to computer architecture students. In LEGv8 instead, it has been decided to split the \verb|ADD| instruction into \verb|ADD| and \verb|ADDI| or register and immediate values usage respectively. Similarly, in ARMv8 the \verb|FADD| instruction is capable of performing additions both in the case of single and double precision registers, whereas in LEGv8 the instruction has been split into \verb|FADDS| and \verb|FADDD| for performing the operation only on single precision or double precision registers respectively.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.8\textwidth]{img/legv8_instruction_set.png}
-	\caption{The complete LEGv8 ISA}
-\end{figure}
-All the instructions are encoded with the same length of 32 bits in order to fetch and decode them more efficiently. They are also grouped into 5 instruction formats to give a more homogeneous encoding to operations performing similar steps and increase their decoding speed.
-The \verb|R|-type instructions perform operations solely on registers, the \verb|I|-type instructions make use of immediate values, the \verb|D|-type instructions access the memory, the \verb|B|-type and \verb|CB| perform unconditional and conditional branching respectively, and the \verb|IW|-type instructions to perform MOV instructions with wider immediate values.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.8\textwidth]{img/instruction_types.png}
-	\caption{The 5 formats of LEGv8 instructions with their encoding pattern}
-\end{figure}
-\section*{Motivations for choosing LEGv8}
-The LEGv8 ISA, being presented and defined in one of the major computer architecture undergraduate textbooks, is taught in many university courses around the world, including the Digital Systems Architecture course held by Prof. Carini at UniTS. In spite of its popularity, no real hardware has been made to run its instruction set natively, and the simulator landscape is almost equally lacking in viable options. This in turn makes it impossible for educators and students alike to show working examples of LEGv8 code, depriving them of teaching and learning opportunities. For these reasons I have chosen to work on an already existing and partially working LEGv8 simulator provided by Arm Holdings plc. to expand upon its functionalities to include a complete simulation of the ISA. 
+\paragraph{1. Modernization of the development environment.}
+A few of the design choices made by the original developers have had some unfortunate consequences on the current state of the project. First among them has been the lack of documentation regarding the build process for the simulator, which has made it impossible to effectively develop fixes and enhancements to the codebase and be able to deploy them and share them. Secondly, the choice of GWT as a framework upon which to base the project has caused the developers to depend on an outdated version of the Eclipse IDE for development. Furthermore, there have been some changes to newer versions of GWT that updated how the library is deployed and break the original Eclipse's workflow.\\
+The work done in this phase has been to update GWT to its latest iteration and to adapt the codebase to accomodate the new build environment. This was achieved by integrating Maven \cite{mavenweb} into the project, thus bringing it to a modern standard of build automation and dependency management. Thanks to this work, the simulator's development environment has been decoupled from Eclipse and can now be set-up in a few simple steps both from the terminal or via any Maven-compatible Java IDE. This allows for an almost automatic set-up process and opens the doors to future development and collaboration thanks to the ability to utilize different and more featureful IDEs, new language features, and take advantage of the automations provided by Maven such as code testing and plugins.
 
+\paragraph{}
+A more extensive overview of the project's structure, its libraries, configuration, and the steps taken to modernize it will be included in Chapter \ref{chap:chap2}.
 
+\paragraph{2. Critical bug fixes.}
+As mentioned before, the simulator presented some breaking bugs that impeded the expected functioning of the code execution.\\
+The first bug consisted in an error in the logic of the simulator that incorrectly evaluated comparisons between integers. Since integer comparisons are at the foundation of conditional instructions and loops, this caused branches to not be taken and loops to be exited prematurely.\\
+The second bug was instead the result of a problem in setting the correct return position when calling a user defined function. This meant that when a function was executed, once the final instruction was reached, instead of returning to the main program where the function was called, the program entered the function again in an infinite loop.
+
+\paragraph{}
+The nature of these bugs and the steps taken to fix them will be discussed in Chapter \ref{chap:chap3}.
+
+\paragraph{3. Completing the integer arithmetic and integrating floating point support.}
+From the survey of available simulators, Arm's didn't distinguish itself for its coverage of the LEGv8 instruction set. This is both in the case of the integer instructions (having implemented only a subset) and the floating point ones (none of which have been implemented).\\
+Regarding the addition of the missing integer instructions, the structure of the codebase allowed for an easy implementation, although some limitation of the Java language necessitated alternative solutions. None of the instructions fundamentally changed the inner workings of the simulator, thus all that was neeeded was to imitate the already implemented logic.\\
+The floating point logic, on the other hand, introduced new elements to the design of the simulator since it required separate places in which to store the values being operated with, and didn't allow the intermixing of integer and floating point values and instructions. In order to implement these features, some previously untouched parts of the simulator have been extended with the necessary logic.
+
+\paragraph{4. Updating the simulator's UI.}
+All the changes and additions mentioned in the previous paragraph needed to be presented to the user through an update of the original UI.\\
+An initial addition, independent from all the changes already mentioned, was the introduction of the visualization of the main memory of the simulated computer. This allows the user to see the complete state of of the memory in real time, both for didactic purposes and to check for errors in the code.\\
+Secondly, all the new floating point logic required the addition of new elements in the UI to visualize the current floating point values in the working memory divided between single and double precision and with the correct dotted decimal notation.\\
+Lastly, a general reorganization of the UI elements was performed to make the simulator fit better on an average computer monitor or projector and present more information without navigating the page.
+
+\paragraph{}
+A complete overview and explanation of all the introduced changes and additions, both to the internal logic of the simulator and its UI, will be provided in Chapter \ref{chap:chap4}.
+
+\paragraph{}
+The work presented in this thesis only tackled a subset of the problems and shortcomings of the simulator, as they are numerous and would require a great amount of additional work as many of them are intrinsic to the design choices of the original developers. The concluding chapter will include a final overview of the work done and a discussion the possible further developments of the simulator and how they might be achieved.

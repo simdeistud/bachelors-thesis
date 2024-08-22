@@ -1,9 +1,53 @@
-\chapter*{Concluding remarks}
+\chapter{Concluding remarks}
 % Do not modify this part
-\addcontentsline{toc}{chapter}{Conclusions}
+%\addcontentsline{toc}{chapter}{Conclusions}
 \label{chap:concl}
 \markboth{CONCLUSIONS}{CONCLUSIONS}
 % Do not modify this part
 
-This thesis' work has consisted in analizing ARM Education's official LEGv8 simulator, bringing it up to an acceptable working state and extending it by implementing the entirety of the LEGv8 ISA and improving its general functioning and UI. As of this date, this is the only publicly available simulator to offer a complete implementation of LEGv8 and a comprehensive visualization of the stack, all of the registers, and the step-by-step state of execution.
+\epigraph{``Probably I am very naive, but I also think I prefer to remain so, at least for the time being and perhaps for the rest of my life.''}{\textit{Edsger W. Dijkstra} -- EWD923A}
+
+\paragraph{}
+This thesis' work has consisted in studying Arm's official LEGv8 simulator, reconstructing and documenting its build process, bringing it up to an acceptable working state by fixing critical bugs in the codebase, and extending it by implementing the entirety of the LEGv8 ISA in single cycle mode and improving its functionalities and UI. As of this date, this is the only publicly available simulator to offer a complete implementation of LEGv8 in single cycle mode and a comprehensive visualization of the stack, of all the registers, and the datapath, as shown in the Patterson's and Hannessy's book \cite{patterson2016computer}.
+\paragraph{}
+Not every part of the simulator has been fixed or touched upon. Because of the undergraduate nature of this thesis, there wasn't enough time to tackle all the problems still present in the codebase. In this concluding chapter, we will provide a comprehensive list of issues and missing features that can be still worked on without fundamentally changing the nature of the project. In the end, we will discuss the more structural problems that would require a similar amount of effort as this thesis' to fix, and which could be considered suggestions for future developments.
+
+\section{Current shortcomings and missing features}
+\paragraph{}
+In no particular order, we present a few observations about some features, both of the original simulator and the ones stemmed from this thesis' work, that could definitely be improved in incremental iterations.
+\subsection{Making full use of Maven}
+\paragraph{}
+The introduction of Maven into the project has already given it a significant boost in configurability, system agnosticism, and ability to be automated in all of its aspects. Maven is a complicated and state of the art build system for Java, and its configuration is not straight forward. Many steps of of its integration in the project might have been performed incorrectly in this thesis, or without following the best practices. For these reasons, improving upon the configuration of Maven, by making use of plug-ins or by cleaning up the code, would make it even easier to deal with the set-up and build processes.
+\subsection{Updating AceGWT and giving it a new home}
+\paragraph{}
+The updated version of AceGWT used in the new version of the project doesn't currently reside in the Maven central repositories nor in the official GitHub repository. An effort of informing and helping the original authors to officially integrate this new update, would allow for the removal of a manual, local installation of the library in the user's filesystem. Of course, updating the Ace editor itself to a newer version and creating the new bindings to GWT would be a welcome change, although it would probably require as much work as the original authors'.
+\subsection{Refactoring the codebase}
+\paragraph{}
+Even though it has been repeated many times in this dissertation that the Java codebase is quite well structured, its code in many places still resembles more of a C-like design. Making too much use of primitive types and not really making use of all the OOP capabilities of Java makes things more complicated than necessary. Since GWT 2.11 started supporting Java 11 features, reorganizing the code to try and make use of these new tools might make future development less cumbersome and the code more extensible.
+\subsection{Creating more documentation}
+\paragraph{}
+In this dissertation we have tried to include as much information as possible about the simulator, but the ultimate arbiter of truth remains the implemented code. For this reason, understanding the inner workings of the simulator and providing additional documentation in the form of design documents, comments, and Javadoc, might make life easier for future developers. This thesis could be taken as a starting point for this effort.
+\subsection{Further improvements to the UI}
+\paragraph{}
+The current state of the UI and UX is quite functional, but, although GWT is an old and outdated framework for creating web applications, it is still possible to make some improvements, such as adding a true responsive design to the web page, especially to make it more usable with mobile devices. Also, a rethinking of the UI elements might allow for a better visual design, such as giving different registers different colors or providing the state of the pipeline with a visual representation, instead of the textual one in the CPU log. Lastly, the stack could be made dynamic by allowing the user to manually browse through the entire memory, either by searching for a specific address or moving around using navigational arrows or scroll bars.
+\subsection{Improving the LEGv8 development experience}
+\paragraph{}
+Ace is a powerful web editor, and as such it can be thoroughly configured. Things such as LEGv8 syntax highlighting could be added by specifying the LEGv8 grammar in an appropriate format and feeding it to the editor. Another shortcoming is that, between page reloads, the contents of the editor get flushed. Introducing permanence to the written code or the ability to upload LEGv8 assembly via a text file, would make resuming development or showcasing examples much easier. Also, being able to choose to run the code until completion -- either instantly or using a custom clock speed -- instead of manually going over each instruction, would help in this aspect.
+\subsection*{Testing the logic}
+\paragraph{}
+Maven makes it easy to implement a testing suite for the simulator. Creating an automatic battery of manual or parameterized tests to be ran each time new changes are made, would make it not only simpler to test the current coverage and correctness of the implemented instructions, but would allow for faster development going forward.
+
+\section{Structural problems and future developments}
+\paragraph{}
+The points that will be discussed now are more fundamental and deeply embedded into the original design choices of the developers, and would require much more work to be implemented than the ones listed in the last section. 
+\subsection{Extending the LEGv8 ISA}
+\paragraph{}
+As was discussed in Chapter \ref{chap:chap1}, LEGv8 is defined in two ways throughout Patterson's and Hannessy's book \cite{patterson2016computer}. The more detailed one is only reserved to the minimal working example presented in their Chapter 4, while the more abstract one is the one used in the simulator to implement the instructions. Since Arm's simulator provides such a comprehensive representation of the instruction and the datapath, extending the detailed specification of LEGv8 to cover the entire ISA would be of great pedagogical help. This operation would require the developer to make informed decisions in order to be consistent with the textbook's exposition. Something like this was already done, in a much smaller scale, in the work presented in this thesis, when talking about the jump conditions for floating-point operations, where we decided to use ARMv8's convention.
+\subsection{Expanding and fixing the pipeline}
+\paragraph{}
+The pipeline execution mode was not touched upon in this dissertation. Even when limiting ourselves to integer-based instructions, there are many cases in which it stalls or the execution behaves in unexpected ways. Furthermore, it's completely unequipped to deal with the new floating-point logic. Unfortunately, the \verb|CPU.java| class is not designed as a pipeline, as it's not logically divided into the proper datapath components that make up the processor. Restructuring the simulator, especially with Java's OOP capabilities, to more closely resemble the five stages, would create a much simpler design that would automatically work in pipeline and single cycle mode. This operation would require major changes to many classes inside the project, and it should take inspiration from the implementations done in the hardware simulators showcased in Chapter \ref{chap:chap1}.
+\subsection{Farewell, GWT?}
+\paragraph{}
+As Appendix \ref{chap:appA} shows, dealing with GWT can be cumbersome. Even though, from the build process point of view, this has been solved in Chapter \ref{chap:chap2}, the entrenched obsolescence of GWT remains. The web is a place of constant innovation, and much better frameworks for creating web applications have been developed since the days of GWT. For this reason, especially when thinking about longer timescales, new solutions should be considered, starting with new libraries for Java. If none are considered suitable, perhaps other languages could be considered, in which case a complete rewrite and redesign would need to happen. It is clear that this last suggestion creates a sort of ship of Theseus situation, and should be the last one to be considered for future developments.
+
 

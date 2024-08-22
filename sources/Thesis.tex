@@ -23,11 +23,14 @@
 \usepackage{epigraph}
 \usepackage{enumitem}
 \usepackage{xcolor}
+\usepackage{lscape}
 \usepackage{wrapfig}
 \usepackage{listings}
+\usepackage{float}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{light-gray}{gray}{0.80}
 
 \lstset{
 	backgroundcolor=\color{white},   % Choose the background color
@@ -46,9 +49,18 @@
 	showspaces=false,                % Don't show spaces
 	showstringspaces=false,          % Don't show spaces in strings
 	showtabs=false,                  % Don't show tabs
+    moredelim=[is][\color{red}]{|}{|},
 	tabsize=2                        % Set tab size
 }
 
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  stringstyle=\color{mygreen},
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue},
+  morekeywords={xmlns,version,type,modules,description,name,packaging,artifactId,groupId,modelVersion,parent,dependencyManagement,dependencies,dependency,scope,gwt}% list your attributes here
+}
 
 \usepackage{subfigure} % Allows for the inclusion of subfigures in the document
 
@@ -67,6 +79,8 @@
 \usepackage{hyperref} % Index of the topics with clickable link, for a more comfortable document navigation
 
 \usepackage{lipsum} % Allows for the insertion of filler text inside the thesis; useless when writing. Delete this command and all the \lorem commands inside the text.
+
+\usepackage{easyReview}
 
 % To add content, refer to the relative files marked by parenthesis in the parameters of \input
 
@@ -91,13 +105,23 @@
 
 \input{Front/Cover}
 
-	
+%*******************************************************
+% Dedications
+%*******************************************************
+\input{Front/Dedications}
+
 \frontmatter
 
 %*******************************************************
 % Summary
 %*******************************************************
 \input{Front/Summary}
+\newpage
+
+%*******************************************************
+% Italian summary
+%*******************************************************
+\input{Front/Sommario}
 \newpage
 
 %*******************************************************
@@ -143,6 +167,20 @@
 \input{Back/Conclusions}
 \newpage
 
+%*******************************************************
+% Appendix
+%*******************************************************
+% Do not modify this part
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{APPENDIX\ \thechapter.\ #1}}{}}
+% Do not modify this part
+
+\appendix
+\label{appendix}
+
+\input{Back/Appendix1}
+\input{Back/Appendix2}
+
 \backmatter
 
 %*******************************************************
@@ -150,7 +188,7 @@
 %*******************************************************
 \nocite{*}
 \bibliography{Bib/Bibliography}
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 
 %*******************************************************
 % Final dedications and acknowledgements

@@ -1,18 +1,17 @@
 \chapter{Summary}\label{chap:summ}
+\paragraph{}
+LEGv8 is an ARMv8-inspired ISA developed by D.A. Patterson and J.L. Hennessy for their Computer Architectures textbook \cite{patterson2016computer}. Being an academic ISA for undergraduate teaching, emulators or simulators are needed to provide real life examples of LEGv8 code being executed.
+Amongst them, a Java-based simulator \cite{legv8simARMrepo} published by Arm \cite{armweb} has been chosen as the subject of this thesis. This simulator distinguishes itself for its comprehensible and structured codebase and for being deployed as a cross-platform web application. Its major drawbacks are a lack of documentation on how to build and develop the simulator, ageing libraries and tools, an incomplete implementation of the ISA, and a series of critical bugs impeding the normal functioning of the simulation.
 
-In this thesis I will be reporting my work done developing upon a Java-based LEGv8 ISA simulator.
-\\
+\paragraph{}
+The work presented in this thesis can be divided into five parts:
 
-In the Introduction I will provide a brief overview of the LEGv8 ISA together with the reasons for choosing this thesis project in the context of the Digital Architectures course.
-\\
+\begin{enumerate}
+    \item Understanding and documenting the current state of the codebase and the ways to build and deploy it as was intended by the developers.
+    \item Modernizing the libraries used in the project and integrating it with a modern build automation system \cite{mavenweb} to make development and deployment of the simulator as simple as possible and decouple it from the tools it was originally developed with.
+    \item Fixing the critical bugs that impeded the normal functioning of the simulator, namely the inability to perform correct comparisons and subroutine calls.
+    \item Implementing the entire single cycle LEGv8 ISA inside the simulator by adding the remaining integer arithmetical instructions and integrating the necessary logic to perform floating-point operations both in single and double precision.
+    \item Updating the web interface of the simulator to provide a real time visualization of the stack memory, the newly introduced integer and floating point instructions, and the floating point registers. In addition, a layout change to better present the simulator information to the user.
+\end{enumerate}
 
-In Chapter 1 I will provide a short summary of the current landscape of software simulators available online for the LEGv8 ISA. I will end the chapter with a focus on the simulator chosen for this thesis' project, namely the LEGv8 simulator developed and distributed by Arm Holdings plc. I will give an overview of its working state, functionality and structure prior to my development efforts.
-\\
 
-In Chapter 2 I will present the work done to decouple the project from the Eclipse IDE and migrate it to a modern build automation system, namely Maven.
-\\
-
-In the Chapter 3 I will showcase the bugs that have been fixed and I will introduce all of the functionalities that have been added to the simulator and the structural changes by them entailed.
-\\
-
-In Chapter 4 I will talk about the shortcomings of the simulator and the work that can be done to further improve it.

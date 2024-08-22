@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                               %
+%                                                               %
+%                                                               %
+%           Page_Style.tex              %
+%                                                               %
+%                                                               %
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{helvet}
+
+%\def\thepart          {\Roman{part}}
+%\def\thechapter       {\arabic{chapter}}
+%\def\thesection       {\thechapter.\arabic{section}}
+%\def\thesubsection    {\thesection.\arabic{subsection}}
+%\def\thesubsubsection {\thesubsection .\arabic{subsubsection}}
+%\def\theparagraph     {\thesubsubsection.\arabic{paragraph}}
+%\def\thesubparagraph  {\theparagraph.\arabic{subparagraph}}
+
+
+\renewcommand \thechapter {\ifnum \c@chapter<10 0\fi\@arabic\c@chapter}
+\renewcommand \thesection {\thechapter.\ifnum \c@section<10 0\fi\@arabic\c@section}
+
+\renewcommand\chapter{\@startsection {chapter}{0}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\null\vspace{1mm}\center\normalfont\LARGE\bfseries}}
+
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\null\vspace{1mm}\center\normalfont\Large\bfseries}}
+                                     
+\setlength\c@chapter{-1}              
+
+
+\@addtoreset{equation}{chapter}   % Makes \chapter reset 'equation' counter.
+\def\theequation{\thechapter.\ifnum \c@equation<10 0\fi\arabic{equation}}
+
+\@addtoreset{figure}{chapter}
+\def\thefigure{\thechapter.\ifnum \c@figure<10 0\fi\@arabic\c@figure}
+
+\@addtoreset{table}{chapter}
+\def\thetable{\thechapter.\ifnum \c@table<10 0\fi\@arabic\c@table}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{{\bf Digital Signal and Image Processing} \\ {\bf \thesection} \topic}
+\fancyhead[R]{ {\bf Computer} Engineering \\  University of {\bf Trieste}}
+\fancyfoot[L]{{\bf \copyright \hspace{0.01cm} 2024} Alberto {\bf Carini}}
+\fancyfoot[R]{\thepage/\nop}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\addtolength{\voffset}{-3mm}
+\addtolength{\headheight}{25.5pt}
+\addtolength{\headsep}{10pt}
+\addtolength{\textheight}{10mm}
+\addtolength{\textwidth}{-6mm}
+\addtolength{\headwidth}{-6mm}
+\fancypagestyle{plain}{
+  \fancyhead{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{1.1}
+

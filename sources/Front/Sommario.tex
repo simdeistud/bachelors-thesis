@@ -1,0 +1,15 @@
+\chapter{Sommario}\label{chap:somm}
+\paragraph{}
+LEGv8 è un'ISA ispirata ad ARMv8 e sviluppata da D.A. Patterson e J.L. Hennessy per il loro libro di testo di Architetture dei Sistemi Digitali \cite{patterson2016computer}. Essendo un'ISA accademica per l'insegnamento universitario, sono necessari emulatori o simulatori per fornire esempi tangibili di esecuzione di codice scritto per essa.
+Tra questi, è stato scelto come oggetto di questa tesi un simulatore basato su Java \cite{legv8simARMrepo} pubblicato da Arm \cite{armweb}. Esso si distingue per il suo codice ben strutturato e la sua distribuzione come applicativo web. I suoi principali svantaggi sono la mancanza di documentazione su come impostare e compilare il simulatore, librerie e strumenti obsoleti, un'implementazione incompleta dell'ISA, e una serie di bug critici che impediscono il normale funzionamento della simulazione.
+\paragraph{}
+Il lavoro presentato in questa tesi può essere diviso in cinque parti:
+\begin{enumerate}
+    \item Comprendere e documentare lo stato attuale della base di codice e i modi per compilarla e distribuirla come previsto dagli sviluppatori.
+    \item Modernizzare le librerie utilizzate nel progetto e integrarlo con un moderno sistema di build automation \cite{mavenweb} per rendere lo sviluppo e la distribuzione del simulatore il più semplice possibile e renderlo indipendente dagli strumenti con cui è stato originariamente sviluppato.
+    \item Correggere i bug critici che impedivano il normale funzionamento del simulatore, ovvero l'incapacità di eseguire confronti tra numeri e chiamate a subroutine.
+    \item Implementare l'intera ISA LEGv8 a ciclo singolo, aggiungendo le mancanti istruzioni aritmetiche intere e integrando la logica necessaria per le operazioni in virgola mobile, sia a singola che doppia precisione.
+    \item Aggiornare l'interfaccia web del simulatore per fornire una visualizzazione in tempo reale dello stack, delle nuove istruzioni intere e in virgola mobile e dei registri in virgola mobile. Inoltre, riorganizzare il layout per presentare meglio le informazioni.
+\end{enumerate}
+
+

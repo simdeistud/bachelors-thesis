@@ -1,0 +1,82 @@
+\documentclass[usenames,dvipsnames,9pt,aspectratio=1609]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{units,upgreek}
+
+%\setbeameroption{show only notes}
+%\setbeameroption{show notes on second screen}
+
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usetheme[titleformat=smallcaps,block=fill]{metropolis}
+\usepackage{metropolis_framesubtitle}
+
+\setbeamertemplate{caption}{\centering\insertcaption\par}
+
+
+\definecolor{blue0}{RGB}{41,56,99}
+\definecolor{red0}{RGB}{190,30,45}
+
+\setbeamercolor{frametitle}{bg=blue0}
+\setbeamercovered{transparent=20}
+\setbeamercolor{alerted text}{fg=red0}
+\setbeamercolor{footline}{fg=blue0}
+
+\setbeamertemplate{caption}{\centering\insertcaption\par}
+\usepackage{appendixnumberbeamer}
+\DeclareMathSizes{10}{9}{6}{4}
+
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{tcolorbox}
+
+\usepackage{amsmath,amssymb,amsfonts,bbm,bm, empheq}
+\usepackage[amssymb,italian,mediumspace,cdot]{SIunits}
+\usepackage{graphbox}
+\usepackage{comment}
+\interdisplaylinepenalty=2500
+%\usepackage[font=scriptsize]{subfig}
+
+\newcommand{\si}{\unit}
+\newcommand{\tx}[1]{\text{#1}}
+\newcommand{\bld}{\boldsymbol}
+\newcommand{\spc}[1]{\addlinespace[#1]}
+\newcommand{\norm}[1]{\left\lvert#1\right\rvert}
+\def\ld{.\,.\,}
+
+\graphicspath{{./figures/}{./}}
+
+\newcommand{\ud}{\mathrm{d}}
+\newcommand{\dB}{\mathrm{dB}}
+\newcommand{\CircN}{\text{\textcircled{\scriptsize $N$}}}
+\newcommand{\CircL}{\text{\textcircled{\scriptsize $L$}}}
+
+\tcbset{%any default parameters
+  width=0.8\textwidth,
+  halign=justify,
+  center,
+  breakable,
+  colback=white    
+}
+
+
+\begin{document}
+
+
+
+\include{SlideEsempio}
+
+
+
+\end{document}
+
+
+
+    \begin{empheq}[box=\fbox]{align*}
+        D_m(z) &= D_{m-1}(z) + K_m z^{-1} \widetilde{D}_{m-1}(z) \\
+        \widetilde{D}_{m}(z) & = z^{-m} D_{m}(z^{-1}) 
+    \end{empheq}
