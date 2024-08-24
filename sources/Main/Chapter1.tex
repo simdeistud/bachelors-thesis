@@ -345,10 +345,10 @@ The classes inside the \verb|cpu| package are responsible for modeling the behav
 The \verb|memory| package is dedicated to the modelization of the main memory of the processor.
 \begin{itemize}
 \item \verb|ByteBuffer.java|:  A utility class used to implement a byte buffer of client specified length, used to store data in big-endian format. As specified by the author, this class has been written because emulation for \verb|java.nio.ByteBuffer| was not supported by GWT.
-\item \verb|Memory.java|:  This is the class used to implement the address space of LEGv8. It follows closely Patterson's and Hannessy's specification as presented in Figure \ref{fig:legv8memdiag} , and as such it appears like a single array of bytes. In this case it's implemented via a \verb|HashMap<Long, Byte>| and offers various methods to read and write different amounts of bytes to it.
+\item \verb|Memory.java|:  This is the class used to implement the address space of LEGv8. It follows closely Patterson's and Hennessy's specification as presented in Figure \ref{fig:legv8memdiag} , and as such it appears like a single array of bytes. In this case it's implemented via a \verb|HashMap<Long, Byte>| and offers various methods to read and write different amounts of bytes to it.
 \end{itemize}
 \subparagraph{}
-The \verb|instruction| packages contains all the classes necessary to model the concept of an instruction as described by Patterson and Hannessy.
+The \verb|instruction| packages contains all the classes necessary to model the concept of an instruction as described by Patterson and Hennessy.
 \begin{itemize}
 	\item \verb|Instruction.java| and \verb|PipelineInstruction.java|: These two classes model an instruction. An instruction contains its mnemonic, its arguments, its control signals for the control unit, and its position inside of the source code. The \verb|PipelineInstruction.java| class is a wrapper for \verb|Instruction.java| and is used in the pipelined execution.
 	\item \verb|Mnemonic.java|: An enumerator class containing the name, OPcode, type, and ALUcode of all of the implemented instructions.
