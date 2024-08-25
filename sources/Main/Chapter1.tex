@@ -118,12 +118,12 @@ As previously mentioned, LEGv8 can be considered a subset of ARMv8, but with a f
 	\caption{The complete LEGv8 instruction list. Adapted from \emph{Computer Organization and Design (ARM Edition)} \cite{patterson2016computer}.}
     \label{fig:legv8instrlist}
 \end{figure}
-As Figure \ref{fig:legv8instrencod} shows, the instructions are encoded with the same length of 32 bits in order to fetch and decode them more efficiently. They are also grouped into 5 instruction formats to give a more homogeneous encoding to operations performing similar steps and increase their decoding speed.
+As Figure \ref{fig:legv8instrencod} shows, the instructions are encoded with the same length of 32 bits in order to fetch and decode them more efficiently. They are also grouped into 6 instruction formats to give a more homogeneous encoding to operations performing similar steps and increase their decoding speed.
 The \verb|R|-type instructions perform operations solely on registers, the \verb|I|-type instructions make use of immediate values, the \verb|D|-type instructions access the memory, the \verb|B|-type and \verb|CB| perform unconditional and conditional branching respectively, and the \verb|IW|-type instructions to perform MOV instructions (i.e., instructions where data is simply moved around) with wider immediate values.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{img/instruction_types.png}
-	\caption{The 5 formats of LEGv8 instructions with their encoding pattern. From \emph{Computer Organization and Design (ARM Edition)} \cite{patterson2016computer}.}
+	\caption{The 6 formats of LEGv8 instructions with their encoding pattern. From \emph{Computer Organization and Design (ARM Edition)} \cite{patterson2016computer}.}
  \label{fig:legv8instrencod}
 \end{figure}
 \subsection{Control unit}
