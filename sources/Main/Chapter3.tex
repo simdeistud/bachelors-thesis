@@ -77,6 +77,9 @@ private void BL(int branchIndex) {
 \section{Realigning the stack}
 \paragraph{}
 As mentioned in Chapter \ref{chap:chap1}, the stack grows from the top of the memory following an address called the \emph{stack pointer} (SP). The authors of the textbook \cite{patterson2016computer} specify that its starting value must be \emph{quadword aligned}, meaning that, in LEGv8, it must be a multiple of 128. For some reason though, the authors set the stack pointer's initial value to $\verb|7ffffffffc|_2$, which is not quadword aligned. It has thus been chosen to adjust this value to $\verb|8000000000|_2$, fixing the problem.
+\section{Fixing the B.LT instruction}
+\paragraph{}
+Another bug relating to conditional jumps, concerned the \verb|B.LT| jump instruction. This instruction jumps if the signed number in the first register is strictly smaller than the signed number in the second register. This instruction didn't work correctly, as the code compared the \verb|Cflag|, instead of the \verb|Nflag|, with the \verb|Vflag|, causing unintended behavior.
 \section{Fixing a datapath visualization bug}
 \paragraph{}
 A bug that was addressed much later during this thesis' work, was first pointed out on the project's GitHub page \cite{legv8simARMrepogit} under the Issues section by user \verb|aaarbk|. The bug consisted in the \verb|Memread| and \verb|Memwrite |signals being given the wrong values in the datapath visualization for the single cycle execution mode. Namely, they appear to behave oppositely than expected, with \verb|Memwrite| being 0 when writing to the memory and \verb|Memread| being 1. The code responsible, shown in Listing \ref{lst:memreadold}, is divided between \verb|SingleCycleVis.java| and \verb|ControlUnitConfiguration.java|.
