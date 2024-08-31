@@ -1,17 +1,17 @@
 \chapter{Summary}\label{chap:summ}
 \paragraph{}
-LEGv8 is an ARMv8-inspired ISA developed by D.A. Patterson and J.L. Hennessy for their Computer Architectures textbook \cite{patterson2016computer}. Being an academic ISA for undergraduate teaching, emulators or simulators are needed to provide real life examples of LEGv8 code being executed.
-Amongst them, a Java-based simulator \cite{legv8simARMrepo} published by Arm \cite{armweb} has been chosen as the subject of this thesis. This simulator distinguishes itself for its comprehensible and structured codebase and for being deployed as a cross-platform web application. Its major drawbacks are a lack of documentation on how to build and develop the simulator, ageing libraries and tools, an incomplete implementation of the ISA, and a series of critical bugs impeding the normal functioning of the simulation.
+LEGv8 is an ARMv8-inspired ISA developed by D.A. Patterson and J.L. Hennessy for their Computer Architectures textbook \cite{patterson2016computer}. Because of its purely didactic nature, software simulators are needed to provide concrete examples of LEGv8 code being executed.
+Amongst them, a Java-based simulator \cite{legv8simARMrepo} published by Arm \cite{armweb} has been chosen as the subject of this thesis. The simulator distinguishes itself for its structured codebase, and for being distributed as a web application. Its major drawbacks are a lack of documentation on how to build and develop the simulator, ageing libraries and tools, an incomplete implementation of the ISA, and a series of critical bugs hindering the simulator's functioning.
 
 \paragraph{}
 The work presented in this thesis can be divided into five parts:
 
 \begin{enumerate}
-    \item Understanding and documenting the current state of the codebase and the ways to build and deploy it as was intended by the developers.
-    \item Modernizing the libraries used in the project and integrating it with a modern build automation system \cite{mavenweb} to make development and deployment of the simulator as simple as possible and decouple it from the tools it was originally developed with.
-    \item Fixing the critical bugs that impeded the normal functioning of the simulator, namely the inability to perform correct comparisons and subroutine calls.
-    \item Implementing the entire single cycle LEGv8 ISA inside the simulator by adding the remaining integer arithmetical instructions and integrating the necessary logic to perform floating-point operations both in single and double precision.
-    \item Updating the web interface of the simulator to provide a real time visualization of the stack memory, the newly introduced integer and floating point instructions, and the floating point registers. In addition, a layout change to better present the simulator information to the user.
+    \item Understanding and documentation of the current state of the codebase and the ways to build and deploy it as intended by the developers.
+    \item Modernization of the libraries used in the project and its integration with a modern build automation system \cite{mavenweb} to make development and deployment of the simulator as simple as possible and decouple it from the tools it was originally developed with.
+    \item Fixing of the critical bugs that impeded the normal operation of the simulator, namely the inability to perform correct comparisons and function calls.
+    \item Implementation of the entire single cycle LEGv8 ISA by adding the missing integer-based instructions and integrating the simulator with floating-point capabilities.
+    \item Updating of the U.I. of the simulator, to provide real time visualization of the stack memory, of the newly introduced integer and floating point instructions, and of the floating point registers. In addition, a layout change to better present the simulator's state to the user.
 \end{enumerate}
 
 
